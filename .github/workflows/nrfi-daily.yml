@@ -1,0 +1,45 @@
+name: NRFI Daily
+
+on:
+  schedule:
+    # 9:00 AM ET = 13:00 UTC (DST) / 14:00 UTC (standard)
+    # Pick one and adjust for season. 13:00 = 9 AM ET in summer (when MLB plays).
+    - cron: '0 13 * * *'
+  workflow_dispatch:  # manual "Run workflow" button in the Actions tab
+
+permissions:
+  contents: write  # needed to push latest.html to gh-pages branch
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: pip install -r requirements.txt
+
+      - name: Run NRFI scan + email
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          BANKROLL: ${{ secrets.BANKROLL }}
+          PAGES_URL: ${{ secrets.PAGES_URL }}
+        run: python nrfi_email.py
+
+      - name: Publish latest.html to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          publish_branch: gh-pages
+          keep_files: true
+          exclude_assets: '**/*.py,**/*.md,**/*.txt,.github/**'
