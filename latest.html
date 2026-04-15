@@ -1,101 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
+<html lang="en"><head><meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>NRFI Daily · 2026-04-15</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0a0a0a; --panel: #131313; --edge: #1f1f1f;
-    --ink: #f4f0e8; --dim: #8a847a; --faint: #4a4641;
-    --amber: #f59e0b; --green: #4ade80; --red: #ef4444; --rule: #232323;
+    --bg:#0a0a0a;--panel:#131313;--edge:#1f1f1f;--ink:#f4f0e8;--dim:#8a847a;--faint:#4a4641;
+    --amber:#f59e0b;--green:#4ade80;--red:#ef4444;--blue:#60a5fa;--rule:#232323;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--bg); color: var(--ink);
-    font-family: 'DM Sans', sans-serif; padding: 32px 24px 80px;
-    background-image:
-      radial-gradient(circle at 15% 10%, rgba(245,158,11,0.04) 0%, transparent 40%),
-      radial-gradient(circle at 85% 90%, rgba(74,222,128,0.03) 0%, transparent 40%);
-  }
-  .wrap { max-width: 1400px; margin: 0 auto; }
-  header.top { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid var(--rule); padding-bottom: 20px; margin-bottom: 32px; }
-  .kicker { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; color: var(--amber); text-transform: uppercase; }
-  h1 { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: 56px; line-height: 1; letter-spacing: -0.02em; margin-top: 4px; }
-  h1 .accent { color: var(--amber); }
-  .meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--dim); text-align: right; line-height: 1.7; }
-
-  .summary { display: flex; gap: 24px; margin-bottom: 28px; flex-wrap: wrap; }
-  .summary .pill { background: var(--panel); border: 1px solid var(--edge); padding: 12px 20px; }
-  .summary .pill .l { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; color: var(--dim); text-transform: uppercase; }
-  .summary .pill .v { font-family: 'JetBrains Mono', monospace; font-size: 24px; margin-top: 4px; }
-  .summary .pill .v.hot { color: var(--green); }
-  .summary .pill .v.warn { color: var(--amber); }
-
-  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 18px; }
-
-  .card { background: var(--panel); border: 1px solid var(--edge); padding: 22px; position: relative; }
-  .card-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-  .verdict { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; padding: 4px 10px; border: 1px solid; }
-  .v-bet { color: var(--green); border-color: var(--green); background: rgba(74,222,128,0.08); }
-  .v-lean { color: var(--amber); border-color: var(--amber); background: rgba(245,158,11,0.08); }
-  .v-pass { color: var(--red); border-color: var(--red); background: rgba(239,68,68,0.06); }
-  .v-nolne { color: var(--dim); border-color: var(--rule); }
-  .time { font-size: 11px; color: var(--dim); }
-
-  .matchup { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 28px; line-height: 1.1; font-weight: 400; }
-  .away-team { color: #e8d8b8; }
-  .home-team { color: #b8d8e8; }
-  .at { color: var(--faint); font-style: normal; font-family: 'JetBrains Mono', monospace; font-size: 16px; padding: 0 6px; }
-  .venue { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--dim); margin-top: 6px; padding-bottom: 16px; border-bottom: 1px solid var(--rule); }
-
-  .big { padding: 16px 0; border-bottom: 1px solid var(--rule); margin-bottom: 16px; }
-  .big-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; color: var(--dim); text-transform: uppercase; }
-  .big-val { font-family: 'JetBrains Mono', monospace; font-weight: 300; font-size: 48px; line-height: 1; color: var(--amber); margin-top: 4px; }
-  .big-sub { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--dim); margin-top: 4px; }
-
-  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
-  .col-name { font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 13px; color: var(--ink); padding-bottom: 6px; border-bottom: 1px dashed var(--rule); margin-bottom: 6px; }
-  .row { display: flex; justify-content: space-between; font-size: 11px; padding: 3px 0; color: var(--dim); }
-  .row .mono { color: var(--ink); font-family: 'JetBrains Mono', monospace; }
-
-  .market { padding-top: 14px; border-top: 1px solid var(--rule); }
-  .m-row { display: flex; justify-content: space-between; font-size: 12px; color: var(--dim); padding: 4px 0; }
-  .m-row .mono { font-family: 'JetBrains Mono', monospace; color: var(--ink); }
-  .m-row .mono.pos { color: var(--green); }
-  .m-row .mono.neg { color: var(--red); }
-  .m-row .mono.dim { color: var(--faint); }
-
-  .empty { padding: 48px; text-align: center; color: var(--dim); border: 1px dashed var(--rule); }
-  .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--rule); font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--faint); text-align: center; letter-spacing: 0.1em; }
-</style>
-</head>
-<body>
-<div class="wrap">
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;padding:32px 24px 80px}
+  .wrap{max-width:1400px;margin:0 auto}
+  header.top{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid var(--rule);padding-bottom:20px;margin-bottom:32px}
+  .kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;color:var(--amber);text-transform:uppercase}
+  h1{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;font-size:56px;line-height:1;letter-spacing:-0.02em;margin-top:4px}
+  h1 .accent{color:var(--amber)}
+  .meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);text-align:right;line-height:1.7}
+  .summary{display:flex;gap:16px;margin-bottom:28px;flex-wrap:wrap}
+  .pill{background:var(--panel);border:1px solid var(--edge);padding:12px 20px}
+  .pill .l{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.18em;color:var(--dim);text-transform:uppercase}
+  .pill .v{font-family:'JetBrains Mono',monospace;font-size:24px;margin-top:4px}
+  .pill .v.bnrfi{color:var(--green)}
+  .pill .v.byrfi{color:var(--blue)}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:18px}
+  .card{background:var(--panel);border:1px solid var(--edge);padding:22px}
+  .card-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  .verdict{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.2em;padding:4px 10px;border:1px solid}
+  .v-bet-nrfi{color:var(--green);border-color:var(--green);background:rgba(74,222,128,0.08)}
+  .v-bet-yrfi{color:var(--blue);border-color:var(--blue);background:rgba(96,165,250,0.08)}
+  .v-nobet{color:var(--dim);border-color:var(--rule)}
+  .v-nolne{color:var(--faint);border-color:var(--rule)}
+  .time{font-size:11px;color:var(--dim)}
+  .matchup{font-family:'Instrument Serif',serif;font-style:italic;font-size:28px;line-height:1.1;font-weight:400}
+  .away-team{color:#e8d8b8}.home-team{color:#b8d8e8}
+  .at{color:var(--faint);font-style:normal;font-family:'JetBrains Mono',monospace;font-size:16px;padding:0 6px}
+  .venue{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);margin-top:6px;padding-bottom:16px;border-bottom:1px solid var(--rule)}
+  .big{padding:16px 0;border-bottom:1px solid var(--rule);margin-bottom:16px}
+  .big-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .big-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.18em;color:var(--dim);text-transform:uppercase}
+  .big-val{font-family:'JetBrains Mono',monospace;font-weight:300;font-size:36px;line-height:1;margin-top:4px}
+  .big-val.nrfi{color:var(--green)}.big-val.yrfi{color:var(--blue)}
+  .big-sub{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);margin-top:4px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+  .col-name{font-weight:500;font-size:13px;padding-bottom:6px;border-bottom:1px dashed var(--rule);margin-bottom:6px}
+  .row{display:flex;justify-content:space-between;font-size:11px;padding:3px 0;color:var(--dim)}
+  .row .mono{color:var(--ink);font-family:'JetBrains Mono',monospace}
+  .market{padding-top:14px;border-top:1px solid var(--rule)}
+  .m-row{display:flex;justify-content:space-between;font-size:12px;color:var(--dim);padding:4px 0}
+  .m-row .mono{font-family:'JetBrains Mono',monospace;color:var(--ink)}
+  .m-row .mono.pos{color:var(--green)}.m-row .mono.neg{color:var(--red)}
+  .m-row .mono.dim{color:var(--faint)}
+  .empty{padding:48px;text-align:center;color:var(--dim);border:1px dashed var(--rule)}
+  .footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--rule);font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--faint);text-align:center;letter-spacing:0.1em}
+</style></head><body><div class="wrap">
   <header class="top">
     <div>
       <div class="kicker">First Inning Edge Engine · Daily Slate</div>
       <h1>NRFI<span class="accent">.</span> 2026-04-15</h1>
     </div>
-    <div class="meta">
-      GAMES SCANNED: 15<br/>
-      GENERATED: 2026-04-15 19:49:41<br/>
-      MODEL: POISSON · v1.0
-    </div>
+    <div class="meta">GAMES SCANNED: 15<br/>GENERATED: 2026-04-15 20:04:40<br/>MODEL: POISSON · v1.1</div>
   </header>
-
   <div class="summary">
-    <div class="pill"><div class="l">Bet</div><div class="v hot">0</div></div>
-    <div class="pill"><div class="l">Lean</div><div class="v warn">0</div></div>
+    <div class="pill"><div class="l">Bet NRFI</div><div class="v bnrfi">0</div></div>
+    <div class="pill"><div class="l">Bet YRFI</div><div class="v byrfi">0</div></div>
+    <div class="pill"><div class="l">No Bet</div><div class="v">0</div></div>
     <div class="pill"><div class="l">No Line</div><div class="v">15</div></div>
     <div class="pill"><div class="l">Bankroll</div><div class="v">$1,000</div></div>
   </div>
-
   <div class="cards">
-    
         <article class="card">
           <header class="card-head">
             <div class="verdict v-nolne">NO LINE</div>
@@ -103,35 +76,28 @@
           </header>
           <h2 class="matchup"><span class="away-team">Kansas City Royals</span> <span class="at">@</span> <span class="home-team">Detroit Tigers</span></h2>
           <div class="venue">Comerica Park · PF 0.97 · 68°F · 8 mph</div>
-
           <div class="big">
-            <div class="big-label">P(NRFI)</div>
-            <div class="big-val">63.6%</div>
-            <div class="big-sub">Fair: -175</div>
+            <div class="big-row">
+              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">63.6%</div><div class="big-sub">Fair: -175</div></div>
+              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">36.4%</div><div class="big-sub">Fair: +175</div></div>
+            </div>
           </div>
-
           <div class="grid2">
             <div class="col">
               <div class="col-name">Seth Lugo</div>
               <div class="row"><span>1st ERA</span><span class="mono">0.00</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">1.53</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">20 / 8.7</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.364</span></div>
-              <div class="row"><span>xR1 (Home)</span><span class="mono">0.231</span></div>
             </div>
             <div class="col">
               <div class="col-name">Jack Flaherty</div>
               <div class="row"><span>1st ERA</span><span class="mono">0.00</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">5.14</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">21 / 16.7</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.339</span></div>
-              <div class="row"><span>xR1 (Away)</span><span class="mono">0.221</span></div>
             </div>
           </div>
-
           <div class="market"><div class="m-row"><span>Market</span><span class="mono dim">no line found</span></div></div>
         </article>
-        
         <article class="card">
           <header class="card-head">
             <div class="verdict v-nolne">NO LINE</div>
@@ -139,35 +105,28 @@
           </header>
           <h2 class="matchup"><span class="away-team">Boston Red Sox</span> <span class="at">@</span> <span class="home-team">Minnesota Twins</span></h2>
           <div class="venue">Target Field · PF 0.97 · 62°F · 4 mph</div>
-
           <div class="big">
-            <div class="big-label">P(NRFI)</div>
-            <div class="big-val">62.5%</div>
-            <div class="big-sub">Fair: -166</div>
+            <div class="big-row">
+              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">62.6%</div><div class="big-sub">Fair: -167</div></div>
+              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">37.4%</div><div class="big-sub">Fair: +167</div></div>
+            </div>
           </div>
-
           <div class="grid2">
             <div class="col">
               <div class="col-name">Connelly Early</div>
               <div class="row"><span>1st ERA</span><span class="mono">0.00</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">2.29</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">24 / 11.9</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.379</span></div>
-              <div class="row"><span>xR1 (Home)</span><span class="mono">0.235</span></div>
             </div>
             <div class="col">
               <div class="col-name">Simeon Woods Richardson</div>
               <div class="row"><span>1st ERA</span><span class="mono">0.00</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">6.10</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">12 / 7.6</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.361</span></div>
-              <div class="row"><span>xR1 (Away)</span><span class="mono">0.236</span></div>
             </div>
           </div>
-
           <div class="market"><div class="m-row"><span>Market</span><span class="mono dim">no line found</span></div></div>
         </article>
-        
         <article class="card">
           <header class="card-head">
             <div class="verdict v-nolne">NO LINE</div>
@@ -175,35 +134,28 @@
           </header>
           <h2 class="matchup"><span class="away-team">Toronto Blue Jays</span> <span class="at">@</span> <span class="home-team">Milwaukee Brewers</span></h2>
           <div class="venue">American Family Field · PF 0.98 · Dome</div>
-
           <div class="big">
-            <div class="big-label">P(NRFI)</div>
-            <div class="big-val">61.8%</div>
-            <div class="big-sub">Fair: -162</div>
+            <div class="big-row">
+              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">61.8%</div><div class="big-sub">Fair: -162</div></div>
+              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">38.2%</div><div class="big-sub">Fair: +162</div></div>
+            </div>
           </div>
-
           <div class="grid2">
             <div class="col">
               <div class="col-name">Dylan Cease</div>
               <div class="row"><span>1st ERA</span><span class="mono">0.00</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">2.45</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">39 / 13.4</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.387</span></div>
-              <div class="row"><span>xR1 (Home)</span><span class="mono">0.227</span></div>
             </div>
             <div class="col">
               <div class="col-name">Chad Patrick</div>
               <div class="row"><span>1st ERA</span><span class="mono">0.00</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">0.73</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">14 / 9.8</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.370</span></div>
-              <div class="row"><span>xR1 (Away)</span><span class="mono">0.254</span></div>
             </div>
           </div>
-
           <div class="market"><div class="m-row"><span>Market</span><span class="mono dim">no line found</span></div></div>
         </article>
-        
         <article class="card">
           <header class="card-head">
             <div class="verdict v-nolne">NO LINE</div>
@@ -211,35 +163,28 @@
           </header>
           <h2 class="matchup"><span class="away-team">Miami Marlins</span> <span class="at">@</span> <span class="home-team">Atlanta Braves</span></h2>
           <div class="venue">Truist Park · PF 1.00 · 82°F · 8 mph</div>
-
           <div class="big">
-            <div class="big-label">P(NRFI)</div>
-            <div class="big-val">59.1%</div>
-            <div class="big-sub">Fair: -145</div>
+            <div class="big-row">
+              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">59.1%</div><div class="big-sub">Fair: -145</div></div>
+              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">40.9%</div><div class="big-sub">Fair: +145</div></div>
+            </div>
           </div>
-
           <div class="grid2">
             <div class="col">
               <div class="col-name">Chris Paddack</div>
               <div class="row"><span>1st ERA</span><span class="mono">0.00</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">6.14</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">21 / 7.4</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.403</span></div>
-              <div class="row"><span>xR1 (Home)</span><span class="mono">0.272</span></div>
             </div>
             <div class="col">
               <div class="col-name">Bryce Elder</div>
               <div class="row"><span>1st ERA</span><span class="mono">0.00</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">1.02</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">24 / 7.4</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.382</span></div>
-              <div class="row"><span>xR1 (Away)</span><span class="mono">0.253</span></div>
             </div>
           </div>
-
           <div class="market"><div class="m-row"><span>Market</span><span class="mono dim">no line found</span></div></div>
         </article>
-        
         <article class="card">
           <header class="card-head">
             <div class="verdict v-nolne">NO LINE</div>
@@ -247,35 +192,28 @@
           </header>
           <h2 class="matchup"><span class="away-team">Seattle Mariners</span> <span class="at">@</span> <span class="home-team">San Diego Padres</span></h2>
           <div class="venue">Petco Park · PF 0.94 · 72°F · 5 mph</div>
-
           <div class="big">
-            <div class="big-label">P(NRFI)</div>
-            <div class="big-val">56.6%</div>
-            <div class="big-sub">Fair: -130</div>
+            <div class="big-row">
+              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">56.6%</div><div class="big-sub">Fair: -130</div></div>
+              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">43.4%</div><div class="big-sub">Fair: +130</div></div>
+            </div>
           </div>
-
           <div class="grid2">
             <div class="col">
               <div class="col-name">Emerson Hancock</div>
               <div class="row"><span>1st ERA</span><span class="mono">3.00</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">2.04</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">31 / 4.8</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.364</span></div>
-              <div class="row"><span>xR1 (Home)</span><span class="mono">0.368</span></div>
             </div>
             <div class="col">
               <div class="col-name">Randy Vásquez</div>
               <div class="row"><span>1st ERA</span><span class="mono">0.00</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">1.02</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">28 / 5.8</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.345</span></div>
-              <div class="row"><span>xR1 (Away)</span><span class="mono">0.201</span></div>
             </div>
           </div>
-
           <div class="market"><div class="m-row"><span>Market</span><span class="mono dim">no line found</span></div></div>
         </article>
-        
         <article class="card">
           <header class="card-head">
             <div class="verdict v-nolne">NO LINE</div>
@@ -283,35 +221,28 @@
           </header>
           <h2 class="matchup"><span class="away-team">Arizona Diamondbacks</span> <span class="at">@</span> <span class="home-team">Baltimore Orioles</span></h2>
           <div class="venue">Oriole Park at Camden Yards · PF 1.00 · 90°F · 8 mph</div>
-
           <div class="big">
-            <div class="big-label">P(NRFI)</div>
-            <div class="big-val">55.4%</div>
-            <div class="big-sub">Fair: -124</div>
+            <div class="big-row">
+              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">55.4%</div><div class="big-sub">Fair: -124</div></div>
+              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">44.6%</div><div class="big-sub">Fair: +124</div></div>
+            </div>
           </div>
-
           <div class="grid2">
             <div class="col">
               <div class="col-name">Eduardo Rodriguez</div>
               <div class="row"><span>1st ERA</span><span class="mono">2.25</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">1.96</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">15 / 9.4</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.381</span></div>
-              <div class="row"><span>xR1 (Home)</span><span class="mono">0.351</span></div>
             </div>
             <div class="col">
               <div class="col-name">Kyle Bradish</div>
               <div class="row"><span>1st ERA</span><span class="mono">0.00</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">5.49</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">24 / 11.4</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.355</span></div>
-              <div class="row"><span>xR1 (Away)</span><span class="mono">0.239</span></div>
             </div>
           </div>
-
           <div class="market"><div class="m-row"><span>Market</span><span class="mono dim">no line found</span></div></div>
         </article>
-        
         <article class="card">
           <header class="card-head">
             <div class="verdict v-nolne">NO LINE</div>
@@ -319,35 +250,28 @@
           </header>
           <h2 class="matchup"><span class="away-team">New York Mets</span> <span class="at">@</span> <span class="home-team">Los Angeles Dodgers</span></h2>
           <div class="venue">UNIQLO Field at Dodger Stadium · PF 1.00 · 72°F · 5 mph</div>
-
           <div class="big">
-            <div class="big-label">P(NRFI)</div>
-            <div class="big-val">48.1%</div>
-            <div class="big-sub">Fair: +108</div>
+            <div class="big-row">
+              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">48.1%</div><div class="big-sub">Fair: +108</div></div>
+              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">51.9%</div><div class="big-sub">Fair: -108</div></div>
+            </div>
           </div>
-
           <div class="grid2">
             <div class="col">
               <div class="col-name">Clay Holmes</div>
               <div class="row"><span>1st ERA</span><span class="mono">3.00</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">1.50</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">17 / 11.1</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.429</span></div>
-              <div class="row"><span>xR1 (Home)</span><span class="mono">0.508</span></div>
             </div>
             <div class="col">
               <div class="col-name">Shohei Ohtani</div>
               <div class="row"><span>1st ERA</span><span class="mono">0.00</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">0.00</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">17 / 8.5</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.331</span></div>
-              <div class="row"><span>xR1 (Away)</span><span class="mono">0.224</span></div>
             </div>
           </div>
-
           <div class="market"><div class="m-row"><span>Market</span><span class="mono dim">no line found</span></div></div>
         </article>
-        
         <article class="card">
           <header class="card-head">
             <div class="verdict v-nolne">NO LINE</div>
@@ -355,35 +279,28 @@
           </header>
           <h2 class="matchup"><span class="away-team">San Francisco Giants</span> <span class="at">@</span> <span class="home-team">Cincinnati Reds</span></h2>
           <div class="venue">Great American Ball Park · PF 1.08 · 84°F · 12 mph</div>
-
           <div class="big">
-            <div class="big-label">P(NRFI)</div>
-            <div class="big-val">33.0%</div>
-            <div class="big-sub">Fair: +203</div>
+            <div class="big-row">
+              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">33.0%</div><div class="big-sub">Fair: +203</div></div>
+              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">67.0%</div><div class="big-sub">Fair: -203</div></div>
+            </div>
           </div>
-
           <div class="grid2">
             <div class="col">
               <div class="col-name">Tyler Mahle</div>
               <div class="row"><span>1st ERA</span><span class="mono">6.00</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">4.30</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">23 / 10.9</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.333</span></div>
-              <div class="row"><span>xR1 (Home)</span><span class="mono">0.849</span></div>
             </div>
             <div class="col">
               <div class="col-name">Rhett Lowder</div>
               <div class="row"><span>1st ERA</span><span class="mono">0.00</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">3.31</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">16 / 8.7</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.337</span></div>
-              <div class="row"><span>xR1 (Away)</span><span class="mono">0.259</span></div>
             </div>
           </div>
-
           <div class="market"><div class="m-row"><span>Market</span><span class="mono dim">no line found</span></div></div>
         </article>
-        
         <article class="card">
           <header class="card-head">
             <div class="verdict v-nolne">NO LINE</div>
@@ -391,71 +308,57 @@
           </header>
           <h2 class="matchup"><span class="away-team">Texas Rangers</span> <span class="at">@</span> <span class="home-team">Athletics</span></h2>
           <div class="venue">Sutter Health Park · PF 0.95 · 72°F · 5 mph</div>
-
           <div class="big">
-            <div class="big-label">P(NRFI)</div>
-            <div class="big-val">27.7%</div>
-            <div class="big-sub">Fair: +261</div>
+            <div class="big-row">
+              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">27.7%</div><div class="big-sub">Fair: +261</div></div>
+              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">72.3%</div><div class="big-sub">Fair: -261</div></div>
+            </div>
           </div>
-
           <div class="grid2">
             <div class="col">
               <div class="col-name">Kumar Rocker</div>
               <div class="row"><span>1st ERA</span><span class="mono">9.00</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">4.50</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">18 / 6.8</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.344</span></div>
-              <div class="row"><span>xR1 (Home)</span><span class="mono">1.063</span></div>
             </div>
             <div class="col">
               <div class="col-name">J.T. Ginn</div>
               <div class="row"><span>1st ERA</span><span class="mono">0.00</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">3.27</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">19 / 7.1</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.357</span></div>
-              <div class="row"><span>xR1 (Away)</span><span class="mono">0.221</span></div>
             </div>
           </div>
-
           <div class="market"><div class="m-row"><span>Market</span><span class="mono dim">no line found</span></div></div>
         </article>
-        
         <article class="card">
           <header class="card-head">
             <div class="verdict v-nolne">NO LINE</div>
             <div class="time mono">11:40 PM UTC</div>
           </header>
           <h2 class="matchup"><span class="away-team">Tampa Bay Rays</span> <span class="at">@</span> <span class="home-team">Chicago White Sox</span></h2>
-          <div class="venue">Rate Field · PF 0.92 · 72°F · 5 mph</div>
-
+          <div class="venue">Rate Field · PF 0.92 · 68°F · 6 mph</div>
           <div class="big">
-            <div class="big-label">P(NRFI)</div>
-            <div class="big-val">27.0%</div>
-            <div class="big-sub">Fair: +271</div>
+            <div class="big-row">
+              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">27.3%</div><div class="big-sub">Fair: +266</div></div>
+              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">72.7%</div><div class="big-sub">Fair: -266</div></div>
+            </div>
           </div>
-
           <div class="grid2">
             <div class="col">
               <div class="col-name">Jesse Scholtens</div>
               <div class="row"><span>1st ERA</span><span class="mono">0.00</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">0.00</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">24 / 5.9</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.315</span></div>
-              <div class="row"><span>xR1 (Home)</span><span class="mono">0.182</span></div>
             </div>
             <div class="col">
               <div class="col-name">Sean Burke</div>
               <div class="row"><span>1st ERA</span><span class="mono">13.50</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">3.60</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">24 / 4.8</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.380</span></div>
-              <div class="row"><span>xR1 (Away)</span><span class="mono">1.128</span></div>
             </div>
           </div>
-
           <div class="market"><div class="m-row"><span>Market</span><span class="mono dim">no line found</span></div></div>
         </article>
-        
         <article class="card">
           <header class="card-head">
             <div class="verdict v-nolne">NO LINE</div>
@@ -463,35 +366,28 @@
           </header>
           <h2 class="matchup"><span class="away-team">Chicago Cubs</span> <span class="at">@</span> <span class="home-team">Philadelphia Phillies</span></h2>
           <div class="venue">Citizens Bank Park · PF 1.02 · 87°F · 8 mph</div>
-
           <div class="big">
-            <div class="big-label">P(NRFI)</div>
-            <div class="big-val">24.9%</div>
-            <div class="big-sub">Fair: +301</div>
+            <div class="big-row">
+              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">24.9%</div><div class="big-sub">Fair: +301</div></div>
+              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">75.1%</div><div class="big-sub">Fair: -301</div></div>
+            </div>
           </div>
-
           <div class="grid2">
             <div class="col">
               <div class="col-name">Shota Imanaga</div>
               <div class="row"><span>1st ERA</span><span class="mono">9.00</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">2.81</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">33 / 6.7</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.365</span></div>
-              <div class="row"><span>xR1 (Home)</span><span class="mono">1.158</span></div>
             </div>
             <div class="col">
               <div class="col-name">Jesús Luzardo</div>
               <div class="row"><span>1st ERA</span><span class="mono">0.00</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">6.23</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">37 / 5.6</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.374</span></div>
-              <div class="row"><span>xR1 (Away)</span><span class="mono">0.231</span></div>
             </div>
           </div>
-
           <div class="market"><div class="m-row"><span>Market</span><span class="mono dim">no line found</span></div></div>
         </article>
-        
         <article class="card">
           <header class="card-head">
             <div class="verdict v-nolne">NO LINE</div>
@@ -499,35 +395,28 @@
           </header>
           <h2 class="matchup"><span class="away-team">Cleveland Guardians</span> <span class="at">@</span> <span class="home-team">St. Louis Cardinals</span></h2>
           <div class="venue">Busch Stadium · PF 0.98 · 70°F · 9 mph</div>
-
           <div class="big">
-            <div class="big-label">P(NRFI)</div>
-            <div class="big-val">23.9%</div>
-            <div class="big-sub">Fair: +319</div>
+            <div class="big-row">
+              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">23.9%</div><div class="big-sub">Fair: +318</div></div>
+              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">76.1%</div><div class="big-sub">Fair: -318</div></div>
+            </div>
           </div>
-
           <div class="grid2">
             <div class="col">
               <div class="col-name">Slade Cecconi</div>
               <div class="row"><span>1st ERA</span><span class="mono">0.00</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">5.03</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">20 / 11.4</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.366</span></div>
-              <div class="row"><span>xR1 (Home)</span><span class="mono">0.240</span></div>
             </div>
             <div class="col">
               <div class="col-name">Dustin May</div>
               <div class="row"><span>1st ERA</span><span class="mono">9.00</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">6.98</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">18 / 4.8</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.367</span></div>
-              <div class="row"><span>xR1 (Away)</span><span class="mono">1.192</span></div>
             </div>
           </div>
-
           <div class="market"><div class="m-row"><span>Market</span><span class="mono dim">no line found</span></div></div>
         </article>
-        
         <article class="card">
           <header class="card-head">
             <div class="verdict v-nolne">NO LINE</div>
@@ -535,35 +424,28 @@
           </header>
           <h2 class="matchup"><span class="away-team">Los Angeles Angels</span> <span class="at">@</span> <span class="home-team">New York Yankees</span></h2>
           <div class="venue">Yankee Stadium · PF 1.05 · 87°F · 8 mph</div>
-
           <div class="big">
-            <div class="big-label">P(NRFI)</div>
-            <div class="big-val">17.9%</div>
-            <div class="big-sub">Fair: +459</div>
+            <div class="big-row">
+              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">17.9%</div><div class="big-sub">Fair: +459</div></div>
+              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">82.1%</div><div class="big-sub">Fair: -459</div></div>
+            </div>
           </div>
-
           <div class="grid2">
             <div class="col">
               <div class="col-name">Jack Kochanowicz</div>
               <div class="row"><span>1st ERA</span><span class="mono">0.00</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">3.24</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">17 / 15.3</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.361</span></div>
-              <div class="row"><span>xR1 (Home)</span><span class="mono">0.266</span></div>
             </div>
             <div class="col">
               <div class="col-name">Luis Gil</div>
               <div class="row"><span>1st ERA</span><span class="mono">18.00</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">6.75</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">10 / 15.8</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.379</span></div>
-              <div class="row"><span>xR1 (Away)</span><span class="mono">1.455</span></div>
             </div>
           </div>
-
           <div class="market"><div class="m-row"><span>Market</span><span class="mono dim">no line found</span></div></div>
         </article>
-        
         <article class="card">
           <header class="card-head">
             <div class="verdict v-nolne">NO LINE</div>
@@ -571,35 +453,28 @@
           </header>
           <h2 class="matchup"><span class="away-team">Washington Nationals</span> <span class="at">@</span> <span class="home-team">Pittsburgh Pirates</span></h2>
           <div class="venue">PNC Park · PF 0.97 · 82°F · 13 mph</div>
-
           <div class="big">
-            <div class="big-label">P(NRFI)</div>
-            <div class="big-val">12.2%</div>
-            <div class="big-sub">Fair: +719</div>
+            <div class="big-row">
+              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">12.2%</div><div class="big-sub">Fair: +719</div></div>
+              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">87.8%</div><div class="big-sub">Fair: -719</div></div>
+            </div>
           </div>
-
           <div class="grid2">
             <div class="col">
               <div class="col-name">Jake Irvin</div>
               <div class="row"><span>1st ERA</span><span class="mono">15.00</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">7.07</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">25 / 12.5</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.385</span></div>
-              <div class="row"><span>xR1 (Home)</span><span class="mono">1.262</span></div>
             </div>
             <div class="col">
               <div class="col-name">Mason Montgomery</div>
               <div class="row"><span>1st ERA</span><span class="mono">6.14</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">6.14</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">44 / 13.9</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.400</span></div>
-              <div class="row"><span>xR1 (Away)</span><span class="mono">0.841</span></div>
             </div>
           </div>
-
           <div class="market"><div class="m-row"><span>Market</span><span class="mono dim">no line found</span></div></div>
         </article>
-        
         <article class="card">
           <header class="card-head">
             <div class="verdict v-nolne">NO LINE</div>
@@ -607,38 +482,27 @@
           </header>
           <h2 class="matchup"><span class="away-team">Colorado Rockies</span> <span class="at">@</span> <span class="home-team">Houston Astros</span></h2>
           <div class="venue">Daikin Park · PF 1.00 · Dome</div>
-
           <div class="big">
-            <div class="big-label">P(NRFI)</div>
-            <div class="big-val">12.1%</div>
-            <div class="big-sub">Fair: +728</div>
+            <div class="big-row">
+              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">12.1%</div><div class="big-sub">Fair: +728</div></div>
+              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">87.9%</div><div class="big-sub">Fair: -728</div></div>
+            </div>
           </div>
-
           <div class="grid2">
             <div class="col">
               <div class="col-name">Jose Quintana</div>
               <div class="row"><span>1st ERA</span><span class="mono">9.00</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">4.15</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">10 / 21.1</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.415</span></div>
-              <div class="row"><span>xR1 (Home)</span><span class="mono">1.538</span></div>
             </div>
             <div class="col">
               <div class="col-name">Spencer Arrighetti</div>
               <div class="row"><span>1st ERA</span><span class="mono">4.30</span></div>
               <div class="row"><span>Season ERA</span><span class="mono">4.30</span></div>
               <div class="row"><span>K% / BB%</span><span class="mono">22 / 8.0</span></div>
-              <div class="row"><span>vs lineup wOBA</span><span class="mono">0.361</span></div>
-              <div class="row"><span>xR1 (Away)</span><span class="mono">0.576</span></div>
             </div>
           </div>
-
           <div class="market"><div class="m-row"><span>Market</span><span class="mono dim">no line found</span></div></div>
-        </article>
-        
-  </div>
-
-  <div class="footer">NRFI DAILY · GENERATED LOCALLY · NOT INVESTMENT ADVICE · GAMBLE RESPONSIBLY</div>
-</div>
-</body>
-</html>
+        </article></div>
+  <div class="footer">NRFI DAILY · NOT INVESTMENT ADVICE · GAMBLE RESPONSIBLY</div>
+</div></body></html>
