@@ -253,12 +253,12 @@ def fetch_inning_odds():
         if not (eid and away and home):
             continue
         oj = safe_get(f"https://api.the-odds-api.com/v4/sports/baseball_mlb/events/{eid}/odds"
-                      f"?apiKey={ODDS_API_KEY}&regions=us&markets=totals_1st_1&oddsFormat=american")
+                      f"?apiKey={ODDS_API_KEY}&regions=us&markets=totals_1st_1_innings&oddsFormat=american")
         best_under, under_book = None, ""
         best_over, over_book = None, ""
         for book in oj.get("bookmakers", []):
             for m in book.get("markets", []):
-                if m.get("key") != "totals_1st_1":
+                if m.get("key") != "totals_1st_1_innings":
                     continue
                 for o in m.get("outcomes", []):
                     name = (o.get("name") or "").lower()
