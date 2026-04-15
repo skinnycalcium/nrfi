@@ -2,13 +2,11 @@ name: NRFI Daily
 
 on:
   schedule:
-    # 9:00 AM ET = 13:00 UTC (DST) / 14:00 UTC (standard)
-    # Pick one and adjust for season. 13:00 = 9 AM ET in summer (when MLB plays).
-    - cron: '0 13 * * *'
-  workflow_dispatch:  # manual "Run workflow" button in the Actions tab
+    - cron: '0 13 * * *'   # 9 AM ET daily
+  workflow_dispatch:
 
 permissions:
-  contents: write  # needed to push latest.html to gh-pages branch
+  contents: write
 
 jobs:
   run:
@@ -35,7 +33,21 @@ jobs:
           PAGES_URL: ${{ secrets.PAGES_URL }}
         run: python nrfi_email.py
 
-      - name: Publish latest.html to gh-pages
+      - name: Track picks + grade prior days
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          BANKROLL: ${{ secrets.BANKROLL }}
+        run: python nrfi_track.py
+
+      - name: Commit updated picks data
+        run: |
+          git config user.name "nrfi-bot"
+          git config user.email "nrfi-bot@users.noreply.github.com"
+          git add picks_today.json picks_history.json picks_summary.json || true
+          git diff --staged --quiet || git commit -m "Update picks data $(date -u +%Y-%m-%d)"
+          git push || true
+
+      - name: Publish dashboard to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
