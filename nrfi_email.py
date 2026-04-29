@@ -42,14 +42,12 @@ def build_summary_email(games: list, target: str) -> tuple[str, str]:
         else:
             color, label = "#bbb", "NO LINE"
 
-        # Game time in ET
         try:
             tlocal = datetime.fromisoformat(g.game_time_iso.replace("Z", "+00:00")).astimezone(ET)
             time_str = tlocal.strftime("%-I:%M %p ET")
         except Exception:
             time_str = ""
 
-        # Pitcher matchup line
         pitchers = f"{g.away_pitcher.name} vs {g.home_pitcher.name}"
 
         if g.verdict == "PITCHER TBD":
@@ -158,7 +156,6 @@ def send_via_resend(subject, body_html, attachments, to_addr, from_addr):
 
 
 def main():
-    # Default to TODAY in US Eastern Time so the runner's UTC clock can never put us a day off.
     target = sys.argv[1] if len(sys.argv) > 1 else datetime.now(ET).date().isoformat()
 
     print(f"=== NRFI Email - {target} (ET) ===", file=sys.stderr)
