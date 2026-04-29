@@ -1,598 +1,633 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>NRFI Daily · 2026-04-29</title>
+<title>NRFI Daily - 2026-04-29</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg:#0a0a0a;--panel:#131313;--edge:#1f1f1f;--ink:#f4f0e8;--dim:#8a847a;--faint:#4a4641;
-    --amber:#f59e0b;--green:#4ade80;--red:#ef4444;--blue:#60a5fa;--rule:#232323;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;padding:32px 24px 80px}
-  .wrap{max-width:1400px;margin:0 auto}
-  header.top{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid var(--rule);padding-bottom:20px;margin-bottom:32px}
-  .kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;color:var(--amber);text-transform:uppercase}
-  h1{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;font-size:56px;line-height:1;letter-spacing:-0.02em;margin-top:4px}
-  h1 .accent{color:var(--amber)}
-  .meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);text-align:right;line-height:1.7}
-  .summary{display:flex;gap:16px;margin-bottom:28px;flex-wrap:wrap}
-  .pill{background:var(--panel);border:1px solid var(--edge);padding:12px 20px}
-  .pill .l{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.18em;color:var(--dim);text-transform:uppercase}
-  .pill .v{font-family:'JetBrains Mono',monospace;font-size:24px;margin-top:4px}
-  .pill .v.bnrfi{color:var(--green)}
-  .pill .v.byrfi{color:var(--blue)}
-  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:18px}
-  .card{background:var(--panel);border:1px solid var(--edge);padding:22px}
-  .card-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-  .verdict{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.2em;padding:4px 10px;border:1px solid}
-  .v-bet-nrfi{color:var(--green);border-color:var(--green);background:rgba(74,222,128,0.08)}
-  .v-bet-yrfi{color:var(--blue);border-color:var(--blue);background:rgba(96,165,250,0.08)}
-  .v-nobet{color:var(--dim);border-color:var(--rule)}
-  .v-nolne{color:var(--faint);border-color:var(--rule)}
-  .time{font-size:11px;color:var(--dim)}
-  .matchup{font-family:'Instrument Serif',serif;font-style:italic;font-size:28px;line-height:1.1;font-weight:400}
-  .away-team{color:#e8d8b8}.home-team{color:#b8d8e8}
-  .at{color:var(--faint);font-style:normal;font-family:'JetBrains Mono',monospace;font-size:16px;padding:0 6px}
-  .venue{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);margin-top:6px;padding-bottom:16px;border-bottom:1px solid var(--rule)}
-  .big{padding:16px 0;border-bottom:1px solid var(--rule);margin-bottom:16px}
-  .big-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .big-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.18em;color:var(--dim);text-transform:uppercase}
-  .big-val{font-family:'JetBrains Mono',monospace;font-weight:300;font-size:36px;line-height:1;margin-top:4px}
-  .big-val.nrfi{color:var(--green)}.big-val.yrfi{color:var(--blue)}
-  .big-sub{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);margin-top:4px}
-  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
-  .col-name{font-weight:500;font-size:13px;padding-bottom:6px;border-bottom:1px dashed var(--rule);margin-bottom:6px}
-  .row{display:flex;justify-content:space-between;font-size:11px;padding:3px 0;color:var(--dim)}
-  .row .mono{color:var(--ink);font-family:'JetBrains Mono',monospace}
-  .market{padding-top:14px;border-top:1px solid var(--rule)}
-  .m-row{display:flex;justify-content:space-between;font-size:12px;color:var(--dim);padding:4px 0}
-  .m-row .mono{font-family:'JetBrains Mono',monospace;color:var(--ink)}
-  .m-row .mono.pos{color:var(--green)}.m-row .mono.neg{color:var(--red)}
-  .m-row .mono.dim{color:var(--faint)}
-  .empty{padding:48px;text-align:center;color:var(--dim);border:1px dashed var(--rule)}
-  .footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--rule);font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--faint);text-align:center;letter-spacing:0.1em}
+:root {
+  --bg:#0a0a0a;--panel:#131313;--edge:#1f1f1f;--ink:#f4f0e8;--dim:#8a847a;--faint:#4a4641;
+  --amber:#f59e0b;--green:#4ade80;--red:#ef4444;--blue:#60a5fa;--rule:#232323;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;padding:32px 24px 80px}
+.wrap{max-width:1400px;margin:0 auto}
+header.top{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid var(--rule);padding-bottom:20px;margin-bottom:32px}
+.kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;color:var(--amber);text-transform:uppercase}
+h1{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;font-size:56px;line-height:1;letter-spacing:-0.02em;margin-top:4px}
+h1 .accent{color:var(--amber)}
+.meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);text-align:right;line-height:1.7}
+.summary{display:flex;gap:16px;margin-bottom:28px;flex-wrap:wrap}
+.pill{background:var(--panel);border:1px solid var(--edge);padding:12px 20px}
+.pill .l{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.18em;color:var(--dim);text-transform:uppercase}
+.pill .v{font-family:'JetBrains Mono',monospace;font-size:24px;margin-top:4px}
+.pill .v.bnrfi{color:var(--green)}
+.pill .v.byrfi{color:var(--blue)}
+.pill .v.tbd{color:var(--amber)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:18px}
+.card{background:var(--panel);border:1px solid var(--edge);padding:22px}
+.card-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.verdict{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.2em;padding:4px 10px;border:1px solid}
+.v-bet-nrfi{color:var(--green);border-color:var(--green);background:rgba(74,222,128,0.08)}
+.v-bet-yrfi{color:var(--blue);border-color:var(--blue);background:rgba(96,165,250,0.08)}
+.v-nobet{color:var(--dim);border-color:var(--rule)}
+.v-nolne{color:var(--faint);border-color:var(--rule)}
+.v-tbd{color:var(--amber);border-color:var(--amber);background:rgba(245,158,11,0.08)}
+.time{font-size:11px;color:var(--dim)}
+.matchup{font-family:'Instrument Serif',serif;font-style:italic;font-size:28px;line-height:1.1;font-weight:400}
+.away-team{color:#e8d8b8}.home-team{color:#b8d8e8}
+.at{color:var(--faint);font-style:normal;font-family:'JetBrains Mono',monospace;font-size:16px;padding:0 6px}
+.venue{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);margin-top:6px;padding-bottom:16px;border-bottom:1px solid var(--rule)}
+.big{padding:16px 0;border-bottom:1px solid var(--rule);margin-bottom:16px}
+.big-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.big-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.18em;color:var(--dim);text-transform:uppercase}
+.big-val{font-family:'JetBrains Mono',monospace;font-weight:300;font-size:36px;line-height:1;margin-top:4px}
+.big-val.nrfi{color:var(--green)}.big-val.yrfi{color:var(--blue)}
+.big-val.dim{color:var(--faint)}
+.big-sub{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);margin-top:4px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+.col-name{font-weight:500;font-size:13px;padding-bottom:6px;border-bottom:1px dashed var(--rule);margin-bottom:6px}
+.row{display:flex;justify-content:space-between;font-size:11px;padding:3px 0;color:var(--dim)}
+.row .mono{color:var(--ink);font-family:'JetBrains Mono',monospace}
+.row .mono.dim{color:var(--faint)}
+.market{padding-top:14px;border-top:1px solid var(--rule)}
+.m-row{display:flex;justify-content:space-between;font-size:12px;color:var(--dim);padding:4px 0}
+.m-row .mono{font-family:'JetBrains Mono',monospace;color:var(--ink)}
+.m-row .mono.pos{color:var(--green)}.m-row .mono.neg{color:var(--red)}
+.m-row .mono.dim{color:var(--faint)}
+.empty{padding:48px;text-align:center;color:var(--dim);border:1px dashed var(--rule)}
+.footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--rule);font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--faint);text-align:center;letter-spacing:0.1em}
 </style></head><body><div class="wrap">
   <header class="top">
     <div>
-      <div class="kicker">First Inning Edge Engine · Daily Slate</div>
+      <div class="kicker">First Inning Edge Engine - Daily Slate</div>
       <h1>NRFI<span class="accent">.</span> 2026-04-29</h1>
     </div>
-    <div class="meta">GAMES SCANNED: 15<br/>GENERATED: 2026-04-29 15:57:14<br/>MODEL: POISSON · v1.1</div>
+    <div class="meta">GAMES SCANNED: 15<br/>GENERATED: 2026-04-29 12:02 PM ET<br/>MODEL: POISSON - v1.2</div>
   </header>
   <div class="summary">
     <div class="pill"><div class="l">Bet NRFI</div><div class="v bnrfi">1</div></div>
     <div class="pill"><div class="l">Bet YRFI</div><div class="v byrfi">13</div></div>
     <div class="pill"><div class="l">No Bet</div><div class="v">1</div></div>
     <div class="pill"><div class="l">No Line</div><div class="v">0</div></div>
+    <div class="pill"><div class="l">Pitcher TBD</div><div class="v tbd">0</div></div>
     <div class="pill"><div class="l">Bankroll</div><div class="v">$1,000</div></div>
   </div>
   <div class="cards">
         <article class="card">
           <header class="card-head">
             <div class="verdict v-bet-yrfi">BET YRFI</div>
-            <div class="time mono">11:40 PM UTC</div>
+            <div class="time mono">7:40 PM ET</div>
           </header>
           <h2 class="matchup"><span class="away-team">Arizona Diamondbacks</span> <span class="at">@</span> <span class="home-team">Milwaukee Brewers</span></h2>
-          <div class="venue">American Family Field · PF 0.98 · Dome</div>
-          <div class="big">
-            <div class="big-row">
-              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">13.4%</div><div class="big-sub">Fair: +646</div></div>
-              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">86.6%</div><div class="big-sub">Fair: -646</div></div>
-            </div>
-          </div>
-          <div class="grid2">
-            <div class="col">
-              <div class="col-name">Eduardo Rodriguez</div>
-              <div class="row"><span>1st ERA</span><span class="mono">5.40</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">2.89</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">15 / 10.0</span></div>
-            </div>
-            <div class="col">
-              <div class="col-name">Brandon Sproat</div>
-              <div class="row"><span>1st ERA</span><span class="mono">18.00</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">6.45</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">21 / 13.7</span></div>
-            </div>
-          </div>
+          <div class="venue">American Family Field - PF 0.98 - Dome</div>
           
-              <div class="market">
-                <div class="m-row"><span>Best side</span><span class="mono">YRFI -105 · BetMGM</span></div>
-                <div class="m-row"><span>Implied prob</span><span class="mono">51.2%</span></div>
-                <div class="m-row"><span>Edge</span><span class="mono pos">+35.4%</span></div>
-                <div class="m-row"><span>Kelly stake (¼)</span><span class="mono">$181 (18.13%)</span></div>
+            <div class="big">
+              <div class="big-row">
+                <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">13.4%</div><div class="big-sub">Fair: +646</div></div>
+                <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">86.6%</div><div class="big-sub">Fair: -646</div></div>
               </div>
+            </div>
+          
+            <div class="grid2">
+              <div class="col">
+                <div class="col-name">Eduardo Rodriguez</div>
+                <div class="row"><span>1st ERA</span><span class="mono">5.40</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">2.89</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">15 / 10.0</span></div>
+              </div>
+              <div class="col">
+                <div class="col-name">Brandon Sproat</div>
+                <div class="row"><span>1st ERA</span><span class="mono">18.00</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">6.45</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">21 / 13.7</span></div>
+              </div>
+            </div>
+          
+            <div class="market">
+              <div class="m-row"><span>Best side</span><span class="mono">YRFI -105 - BetMGM</span></div>
+              <div class="m-row"><span>Implied prob</span><span class="mono">51.2%</span></div>
+              <div class="m-row"><span>Edge</span><span class="mono pos">+35.4%</span></div>
+              <div class="m-row"><span>Kelly stake (1/4)</span><span class="mono">$181 (18.13%)</span></div>
+            </div>
         </article>
         <article class="card">
           <header class="card-head">
             <div class="verdict v-bet-yrfi">BET YRFI</div>
-            <div class="time mono">6:35 PM UTC</div>
+            <div class="time mono">2:35 PM ET</div>
           </header>
           <h2 class="matchup"><span class="away-team">New York Yankees</span> <span class="at">@</span> <span class="home-team">Texas Rangers</span></h2>
-          <div class="venue">Globe Life Field · PF 1.01 · Dome</div>
-          <div class="big">
-            <div class="big-row">
-              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">15.5%</div><div class="big-sub">Fair: +544</div></div>
-              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">84.5%</div><div class="big-sub">Fair: -544</div></div>
-            </div>
-          </div>
-          <div class="grid2">
-            <div class="col">
-              <div class="col-name">Elmer Rodríguez</div>
-              <div class="row"><span>1st ERA</span><span class="mono">4.30</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">4.30</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">22 / 8.0</span></div>
-            </div>
-            <div class="col">
-              <div class="col-name">Nathan Eovaldi</div>
-              <div class="row"><span>1st ERA</span><span class="mono">10.50</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">5.79</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">22 / 6.1</span></div>
-            </div>
-          </div>
+          <div class="venue">Globe Life Field - PF 1.01 - Dome</div>
           
-              <div class="market">
-                <div class="m-row"><span>Best side</span><span class="mono">YRFI -110 · BetMGM</span></div>
-                <div class="m-row"><span>Implied prob</span><span class="mono">52.4%</span></div>
-                <div class="m-row"><span>Edge</span><span class="mono pos">+32.1%</span></div>
-                <div class="m-row"><span>Kelly stake (¼)</span><span class="mono">$169 (16.85%)</span></div>
+            <div class="big">
+              <div class="big-row">
+                <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">15.5%</div><div class="big-sub">Fair: +544</div></div>
+                <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">84.5%</div><div class="big-sub">Fair: -544</div></div>
               </div>
+            </div>
+          
+            <div class="grid2">
+              <div class="col">
+                <div class="col-name">Elmer Rodríguez</div>
+                <div class="row"><span>1st ERA</span><span class="mono">4.30</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">4.30</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">22 / 8.0</span></div>
+              </div>
+              <div class="col">
+                <div class="col-name">Nathan Eovaldi</div>
+                <div class="row"><span>1st ERA</span><span class="mono">10.50</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">5.79</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">22 / 6.1</span></div>
+              </div>
+            </div>
+          
+            <div class="market">
+              <div class="m-row"><span>Best side</span><span class="mono">YRFI -110 - BetMGM</span></div>
+              <div class="m-row"><span>Implied prob</span><span class="mono">52.4%</span></div>
+              <div class="m-row"><span>Edge</span><span class="mono pos">+32.1%</span></div>
+              <div class="m-row"><span>Kelly stake (1/4)</span><span class="mono">$169 (16.85%)</span></div>
+            </div>
         </article>
         <article class="card">
           <header class="card-head">
             <div class="verdict v-bet-yrfi">BET YRFI</div>
-            <div class="time mono">11:10 PM UTC</div>
+            <div class="time mono">7:10 PM ET</div>
           </header>
           <h2 class="matchup"><span class="away-team">Washington Nationals</span> <span class="at">@</span> <span class="home-team">New York Mets</span></h2>
-          <div class="venue">Citi Field · PF 0.96 · 72°F · 5 mph</div>
-          <div class="big">
-            <div class="big-row">
-              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">21.3%</div><div class="big-sub">Fair: +369</div></div>
-              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">78.7%</div><div class="big-sub">Fair: -369</div></div>
-            </div>
-          </div>
-          <div class="grid2">
-            <div class="col">
-              <div class="col-name">Cade Cavalli</div>
-              <div class="row"><span>1st ERA</span><span class="mono">3.00</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">4.01</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">24 / 10.3</span></div>
-            </div>
-            <div class="col">
-              <div class="col-name">David Peterson</div>
-              <div class="row"><span>1st ERA</span><span class="mono">9.00</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">5.06</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">19 / 8.8</span></div>
-            </div>
-          </div>
+          <div class="venue">Citi Field - PF 0.96 - 72F - 5 mph</div>
           
-              <div class="market">
-                <div class="m-row"><span>Best side</span><span class="mono">YRFI +105 · BetMGM</span></div>
-                <div class="m-row"><span>Implied prob</span><span class="mono">48.8%</span></div>
-                <div class="m-row"><span>Edge</span><span class="mono pos">+29.9%</span></div>
-                <div class="m-row"><span>Kelly stake (¼)</span><span class="mono">$146 (14.60%)</span></div>
+            <div class="big">
+              <div class="big-row">
+                <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">21.3%</div><div class="big-sub">Fair: +369</div></div>
+                <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">78.7%</div><div class="big-sub">Fair: -369</div></div>
               </div>
+            </div>
+          
+            <div class="grid2">
+              <div class="col">
+                <div class="col-name">Cade Cavalli</div>
+                <div class="row"><span>1st ERA</span><span class="mono">3.00</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">4.01</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">24 / 10.3</span></div>
+              </div>
+              <div class="col">
+                <div class="col-name">David Peterson</div>
+                <div class="row"><span>1st ERA</span><span class="mono">9.00</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">5.06</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">19 / 8.8</span></div>
+              </div>
+            </div>
+          
+            <div class="market">
+              <div class="m-row"><span>Best side</span><span class="mono">YRFI +105 - BetMGM</span></div>
+              <div class="m-row"><span>Implied prob</span><span class="mono">48.8%</span></div>
+              <div class="m-row"><span>Edge</span><span class="mono pos">+29.9%</span></div>
+              <div class="m-row"><span>Kelly stake (1/4)</span><span class="mono">$146 (14.60%)</span></div>
+            </div>
         </article>
         <article class="card">
           <header class="card-head">
             <div class="verdict v-bet-yrfi">BET YRFI</div>
-            <div class="time mono">10:35 PM UTC</div>
+            <div class="time mono">6:35 PM ET</div>
           </header>
           <h2 class="matchup"><span class="away-team">Houston Astros</span> <span class="at">@</span> <span class="home-team">Baltimore Orioles</span></h2>
-          <div class="venue">Oriole Park at Camden Yards · PF 1.00 · 61°F · 2 mph</div>
-          <div class="big">
-            <div class="big-row">
-              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">17.0%</div><div class="big-sub">Fair: +489</div></div>
-              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">83.0%</div><div class="big-sub">Fair: -489</div></div>
-            </div>
-          </div>
-          <div class="grid2">
-            <div class="col">
-              <div class="col-name">Peter Lambert</div>
-              <div class="row"><span>1st ERA</span><span class="mono">4.50</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">3.27</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">33 / 8.3</span></div>
-            </div>
-            <div class="col">
-              <div class="col-name">Chris Bassitt</div>
-              <div class="row"><span>1st ERA</span><span class="mono">7.20</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">6.75</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">9 / 12.0</span></div>
-            </div>
-          </div>
+          <div class="venue">Oriole Park at Camden Yards - PF 1.00 - 61F - 2 mph</div>
           
-              <div class="market">
-                <div class="m-row"><span>Best side</span><span class="mono">YRFI -115 · BetOnline.ag</span></div>
-                <div class="m-row"><span>Implied prob</span><span class="mono">53.5%</span></div>
-                <div class="m-row"><span>Edge</span><span class="mono pos">+29.5%</span></div>
-                <div class="m-row"><span>Kelly stake (¼)</span><span class="mono">$159 (15.87%)</span></div>
+            <div class="big">
+              <div class="big-row">
+                <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">17.0%</div><div class="big-sub">Fair: +489</div></div>
+                <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">83.0%</div><div class="big-sub">Fair: -489</div></div>
               </div>
+            </div>
+          
+            <div class="grid2">
+              <div class="col">
+                <div class="col-name">Peter Lambert</div>
+                <div class="row"><span>1st ERA</span><span class="mono">4.50</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">3.27</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">33 / 8.3</span></div>
+              </div>
+              <div class="col">
+                <div class="col-name">Chris Bassitt</div>
+                <div class="row"><span>1st ERA</span><span class="mono">7.20</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">6.75</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">9 / 12.0</span></div>
+              </div>
+            </div>
+          
+            <div class="market">
+              <div class="m-row"><span>Best side</span><span class="mono">YRFI -115 - BetOnline.ag</span></div>
+              <div class="m-row"><span>Implied prob</span><span class="mono">53.5%</span></div>
+              <div class="m-row"><span>Edge</span><span class="mono pos">+29.5%</span></div>
+              <div class="m-row"><span>Kelly stake (1/4)</span><span class="mono">$159 (15.87%)</span></div>
+            </div>
         </article>
         <article class="card">
           <header class="card-head">
             <div class="verdict v-bet-yrfi">BET YRFI</div>
-            <div class="time mono">7:07 PM UTC</div>
+            <div class="time mono">3:07 PM ET</div>
           </header>
           <h2 class="matchup"><span class="away-team">Boston Red Sox</span> <span class="at">@</span> <span class="home-team">Toronto Blue Jays</span></h2>
-          <div class="venue">Rogers Centre · PF 1.03 · Dome</div>
-          <div class="big">
-            <div class="big-row">
-              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">19.8%</div><div class="big-sub">Fair: +404</div></div>
-              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">80.2%</div><div class="big-sub">Fair: -404</div></div>
-            </div>
-          </div>
-          <div class="grid2">
-            <div class="col">
-              <div class="col-name">Brayan Bello</div>
-              <div class="row"><span>1st ERA</span><span class="mono">10.80</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">9.00</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">13 / 11.3</span></div>
-            </div>
-            <div class="col">
-              <div class="col-name">Eric Lauer</div>
-              <div class="row"><span>1st ERA</span><span class="mono">2.25</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">6.75</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">18 / 11.7</span></div>
-            </div>
-          </div>
+          <div class="venue">Rogers Centre - PF 1.03 - Dome</div>
           
-              <div class="market">
-                <div class="m-row"><span>Best side</span><span class="mono">YRFI -106 · FanDuel</span></div>
-                <div class="m-row"><span>Implied prob</span><span class="mono">51.5%</span></div>
-                <div class="m-row"><span>Edge</span><span class="mono pos">+28.7%</span></div>
-                <div class="m-row"><span>Kelly stake (¼)</span><span class="mono">$148 (14.79%)</span></div>
+            <div class="big">
+              <div class="big-row">
+                <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">19.8%</div><div class="big-sub">Fair: +404</div></div>
+                <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">80.2%</div><div class="big-sub">Fair: -404</div></div>
               </div>
+            </div>
+          
+            <div class="grid2">
+              <div class="col">
+                <div class="col-name">Brayan Bello</div>
+                <div class="row"><span>1st ERA</span><span class="mono">10.80</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">9.00</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">13 / 11.3</span></div>
+              </div>
+              <div class="col">
+                <div class="col-name">Eric Lauer</div>
+                <div class="row"><span>1st ERA</span><span class="mono">2.25</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">6.75</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">18 / 11.7</span></div>
+              </div>
+            </div>
+          
+            <div class="market">
+              <div class="m-row"><span>Best side</span><span class="mono">YRFI -106 - FanDuel</span></div>
+              <div class="m-row"><span>Implied prob</span><span class="mono">51.5%</span></div>
+              <div class="m-row"><span>Edge</span><span class="mono pos">+28.7%</span></div>
+              <div class="m-row"><span>Kelly stake (1/4)</span><span class="mono">$148 (14.79%)</span></div>
+            </div>
         </article>
         <article class="card">
           <header class="card-head">
             <div class="verdict v-bet-yrfi">BET YRFI</div>
-            <div class="time mono">11:15 PM UTC</div>
+            <div class="time mono">7:15 PM ET</div>
           </header>
           <h2 class="matchup"><span class="away-team">Detroit Tigers</span> <span class="at">@</span> <span class="home-team">Atlanta Braves</span></h2>
-          <div class="venue">Truist Park · PF 1.00 · 72°F · 5 mph</div>
-          <div class="big">
-            <div class="big-row">
-              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">22.7%</div><div class="big-sub">Fair: +341</div></div>
-              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">77.3%</div><div class="big-sub">Fair: -341</div></div>
-            </div>
-          </div>
-          <div class="grid2">
-            <div class="col">
-              <div class="col-name">Tarik Skubal</div>
-              <div class="row"><span>1st ERA</span><span class="mono">1.50</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">2.72</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">27 / 4.2</span></div>
-            </div>
-            <div class="col">
-              <div class="col-name">JR Ritchie</div>
-              <div class="row"><span>1st ERA</span><span class="mono">9.00</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">2.57</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">27 / 7.7</span></div>
-            </div>
-          </div>
+          <div class="venue">Truist Park - PF 1.00 - 72F - 5 mph</div>
           
-              <div class="market">
-                <div class="m-row"><span>Best side</span><span class="mono">YRFI +100 · BetMGM</span></div>
-                <div class="m-row"><span>Implied prob</span><span class="mono">50.0%</span></div>
-                <div class="m-row"><span>Edge</span><span class="mono pos">+27.3%</span></div>
-                <div class="m-row"><span>Kelly stake (¼)</span><span class="mono">$137 (13.67%)</span></div>
+            <div class="big">
+              <div class="big-row">
+                <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">22.7%</div><div class="big-sub">Fair: +341</div></div>
+                <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">77.3%</div><div class="big-sub">Fair: -341</div></div>
               </div>
+            </div>
+          
+            <div class="grid2">
+              <div class="col">
+                <div class="col-name">Tarik Skubal</div>
+                <div class="row"><span>1st ERA</span><span class="mono">1.50</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">2.72</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">27 / 4.2</span></div>
+              </div>
+              <div class="col">
+                <div class="col-name">JR Ritchie</div>
+                <div class="row"><span>1st ERA</span><span class="mono">9.00</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">2.57</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">27 / 7.7</span></div>
+              </div>
+            </div>
+          
+            <div class="market">
+              <div class="m-row"><span>Best side</span><span class="mono">YRFI +100 - BetMGM</span></div>
+              <div class="m-row"><span>Implied prob</span><span class="mono">50.0%</span></div>
+              <div class="m-row"><span>Edge</span><span class="mono pos">+27.3%</span></div>
+              <div class="m-row"><span>Kelly stake (1/4)</span><span class="mono">$137 (13.67%)</span></div>
+            </div>
         </article>
         <article class="card">
           <header class="card-head">
             <div class="verdict v-bet-yrfi">BET YRFI</div>
-            <div class="time mono">10:40 PM UTC</div>
+            <div class="time mono">6:40 PM ET</div>
           </header>
           <h2 class="matchup"><span class="away-team">St. Louis Cardinals</span> <span class="at">@</span> <span class="home-team">Pittsburgh Pirates</span></h2>
-          <div class="venue">PNC Park · PF 0.97 · 59°F · 10 mph</div>
-          <div class="big">
-            <div class="big-row">
-              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">24.1%</div><div class="big-sub">Fair: +315</div></div>
-              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">75.9%</div><div class="big-sub">Fair: -315</div></div>
-            </div>
-          </div>
-          <div class="grid2">
-            <div class="col">
-              <div class="col-name">Andre Pallante</div>
-              <div class="row"><span>1st ERA</span><span class="mono">9.00</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">4.26</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">18 / 12.3</span></div>
-            </div>
-            <div class="col">
-              <div class="col-name">Bubba Chandler</div>
-              <div class="row"><span>1st ERA</span><span class="mono">0.00</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">4.88</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">19 / 14.8</span></div>
-            </div>
-          </div>
+          <div class="venue">PNC Park - PF 0.97 - 59F - 10 mph</div>
           
-              <div class="market">
-                <div class="m-row"><span>Best side</span><span class="mono">YRFI -108 · BetOnline.ag</span></div>
-                <div class="m-row"><span>Implied prob</span><span class="mono">51.9%</span></div>
-                <div class="m-row"><span>Edge</span><span class="mono pos">+24.0%</span></div>
-                <div class="m-row"><span>Kelly stake (¼)</span><span class="mono">$125 (12.46%)</span></div>
+            <div class="big">
+              <div class="big-row">
+                <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">24.1%</div><div class="big-sub">Fair: +315</div></div>
+                <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">75.9%</div><div class="big-sub">Fair: -315</div></div>
               </div>
+            </div>
+          
+            <div class="grid2">
+              <div class="col">
+                <div class="col-name">Andre Pallante</div>
+                <div class="row"><span>1st ERA</span><span class="mono">9.00</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">4.26</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">18 / 12.3</span></div>
+              </div>
+              <div class="col">
+                <div class="col-name">Bubba Chandler</div>
+                <div class="row"><span>1st ERA</span><span class="mono">0.00</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">4.88</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">19 / 14.8</span></div>
+              </div>
+            </div>
+          
+            <div class="market">
+              <div class="m-row"><span>Best side</span><span class="mono">YRFI -108 - BetOnline.ag</span></div>
+              <div class="m-row"><span>Implied prob</span><span class="mono">51.9%</span></div>
+              <div class="m-row"><span>Edge</span><span class="mono pos">+24.0%</span></div>
+              <div class="m-row"><span>Kelly stake (1/4)</span><span class="mono">$125 (12.46%)</span></div>
+            </div>
         </article>
         <article class="card">
           <header class="card-head">
             <div class="verdict v-bet-yrfi">BET YRFI</div>
-            <div class="time mono">5:10 PM UTC</div>
+            <div class="time mono">1:10 PM ET</div>
           </header>
           <h2 class="matchup"><span class="away-team">Tampa Bay Rays</span> <span class="at">@</span> <span class="home-team">Cleveland Guardians</span></h2>
-          <div class="venue">Progressive Field · PF 0.97 · 50°F · 7 mph</div>
-          <div class="big">
-            <div class="big-row">
-              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">36.0%</div><div class="big-sub">Fair: +178</div></div>
-              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">64.0%</div><div class="big-sub">Fair: -178</div></div>
-            </div>
-          </div>
-          <div class="grid2">
-            <div class="col">
-              <div class="col-name">Drew Rasmussen</div>
-              <div class="row"><span>1st ERA</span><span class="mono">3.60</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">2.45</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">26 / 4.1</span></div>
-            </div>
-            <div class="col">
-              <div class="col-name">Gavin Williams</div>
-              <div class="row"><span>1st ERA</span><span class="mono">4.50</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">3.28</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">31 / 13.4</span></div>
-            </div>
-          </div>
+          <div class="venue">Progressive Field - PF 0.97 - 50F - 7 mph</div>
           
-              <div class="market">
-                <div class="m-row"><span>Best side</span><span class="mono">YRFI +143 · BetOnline.ag</span></div>
-                <div class="m-row"><span>Implied prob</span><span class="mono">41.2%</span></div>
-                <div class="m-row"><span>Edge</span><span class="mono pos">+22.8%</span></div>
-                <div class="m-row"><span>Kelly stake (¼)</span><span class="mono">$97 (9.70%)</span></div>
+            <div class="big">
+              <div class="big-row">
+                <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">36.0%</div><div class="big-sub">Fair: +178</div></div>
+                <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">64.0%</div><div class="big-sub">Fair: -178</div></div>
               </div>
+            </div>
+          
+            <div class="grid2">
+              <div class="col">
+                <div class="col-name">Drew Rasmussen</div>
+                <div class="row"><span>1st ERA</span><span class="mono">3.60</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">2.45</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">26 / 4.1</span></div>
+              </div>
+              <div class="col">
+                <div class="col-name">Gavin Williams</div>
+                <div class="row"><span>1st ERA</span><span class="mono">4.50</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">3.28</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">31 / 13.4</span></div>
+              </div>
+            </div>
+          
+            <div class="market">
+              <div class="m-row"><span>Best side</span><span class="mono">YRFI +143 - BetOnline.ag</span></div>
+              <div class="m-row"><span>Implied prob</span><span class="mono">41.2%</span></div>
+              <div class="m-row"><span>Edge</span><span class="mono pos">+22.8%</span></div>
+              <div class="m-row"><span>Kelly stake (1/4)</span><span class="mono">$97 (9.70%)</span></div>
+            </div>
         </article>
         <article class="card">
           <header class="card-head">
             <div class="verdict v-bet-yrfi">BET YRFI</div>
-            <div class="time mono">1:40 AM UTC</div>
+            <div class="time mono">9:40 PM ET</div>
           </header>
           <h2 class="matchup"><span class="away-team">Kansas City Royals</span> <span class="at">@</span> <span class="home-team">Athletics</span></h2>
-          <div class="venue">Sutter Health Park · PF 0.95 · 72°F · 5 mph</div>
-          <div class="big">
-            <div class="big-row">
-              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">22.4%</div><div class="big-sub">Fair: +347</div></div>
-              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">77.6%</div><div class="big-sub">Fair: -347</div></div>
-            </div>
-          </div>
-          <div class="grid2">
-            <div class="col">
-              <div class="col-name">Michael Wacha</div>
-              <div class="row"><span>1st ERA</span><span class="mono">3.60</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">2.51</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">23 / 8.1</span></div>
-            </div>
-            <div class="col">
-              <div class="col-name">Luis Severino</div>
-              <div class="row"><span>1st ERA</span><span class="mono">7.50</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">5.17</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">23 / 15.3</span></div>
-            </div>
-          </div>
+          <div class="venue">Sutter Health Park - PF 0.95 - 72F - 5 mph</div>
           
-              <div class="market">
-                <div class="m-row"><span>Best side</span><span class="mono">YRFI -122 · BetOnline.ag</span></div>
-                <div class="m-row"><span>Implied prob</span><span class="mono">55.0%</span></div>
-                <div class="m-row"><span>Edge</span><span class="mono pos">+22.7%</span></div>
-                <div class="m-row"><span>Kelly stake (¼)</span><span class="mono">$126 (12.59%)</span></div>
+            <div class="big">
+              <div class="big-row">
+                <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">22.4%</div><div class="big-sub">Fair: +347</div></div>
+                <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">77.6%</div><div class="big-sub">Fair: -347</div></div>
               </div>
+            </div>
+          
+            <div class="grid2">
+              <div class="col">
+                <div class="col-name">Michael Wacha</div>
+                <div class="row"><span>1st ERA</span><span class="mono">3.60</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">2.51</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">23 / 8.1</span></div>
+              </div>
+              <div class="col">
+                <div class="col-name">Luis Severino</div>
+                <div class="row"><span>1st ERA</span><span class="mono">7.50</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">5.17</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">23 / 15.3</span></div>
+              </div>
+            </div>
+          
+            <div class="market">
+              <div class="m-row"><span>Best side</span><span class="mono">YRFI -122 - BetOnline.ag</span></div>
+              <div class="m-row"><span>Implied prob</span><span class="mono">55.0%</span></div>
+              <div class="m-row"><span>Edge</span><span class="mono pos">+22.7%</span></div>
+              <div class="m-row"><span>Kelly stake (1/4)</span><span class="mono">$126 (12.59%)</span></div>
+            </div>
         </article>
         <article class="card">
           <header class="card-head">
             <div class="verdict v-bet-yrfi">BET YRFI</div>
-            <div class="time mono">7:10 PM UTC</div>
+            <div class="time mono">3:10 PM ET</div>
           </header>
           <h2 class="matchup"><span class="away-team">Miami Marlins</span> <span class="at">@</span> <span class="home-team">Los Angeles Dodgers</span></h2>
-          <div class="venue">UNIQLO Field at Dodger Stadium · PF 1.00 · 72°F · 5 mph</div>
-          <div class="big">
-            <div class="big-row">
-              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">37.7%</div><div class="big-sub">Fair: +165</div></div>
-              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">62.3%</div><div class="big-sub">Fair: -165</div></div>
-            </div>
-          </div>
-          <div class="grid2">
-            <div class="col">
-              <div class="col-name">Sandy Alcantara</div>
-              <div class="row"><span>1st ERA</span><span class="mono">4.50</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">3.05</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">16 / 7.8</span></div>
-            </div>
-            <div class="col">
-              <div class="col-name">Tyler Glasnow</div>
-              <div class="row"><span>1st ERA</span><span class="mono">1.80</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">2.45</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">32 / 5.8</span></div>
-            </div>
-          </div>
+          <div class="venue">UNIQLO Field at Dodger Stadium - PF 1.00 - 72F - 5 mph</div>
           
-              <div class="market">
-                <div class="m-row"><span>Best side</span><span class="mono">YRFI -102 · FanDuel</span></div>
-                <div class="m-row"><span>Implied prob</span><span class="mono">50.5%</span></div>
-                <div class="m-row"><span>Edge</span><span class="mono pos">+11.8%</span></div>
-                <div class="m-row"><span>Kelly stake (¼)</span><span class="mono">$60 (5.95%)</span></div>
+            <div class="big">
+              <div class="big-row">
+                <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">37.7%</div><div class="big-sub">Fair: +165</div></div>
+                <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">62.3%</div><div class="big-sub">Fair: -165</div></div>
               </div>
+            </div>
+          
+            <div class="grid2">
+              <div class="col">
+                <div class="col-name">Sandy Alcantara</div>
+                <div class="row"><span>1st ERA</span><span class="mono">4.50</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">3.05</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">16 / 7.8</span></div>
+              </div>
+              <div class="col">
+                <div class="col-name">Tyler Glasnow</div>
+                <div class="row"><span>1st ERA</span><span class="mono">1.80</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">2.45</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">32 / 5.8</span></div>
+              </div>
+            </div>
+          
+            <div class="market">
+              <div class="m-row"><span>Best side</span><span class="mono">YRFI -102 - FanDuel</span></div>
+              <div class="m-row"><span>Implied prob</span><span class="mono">50.5%</span></div>
+              <div class="m-row"><span>Edge</span><span class="mono pos">+11.8%</span></div>
+              <div class="m-row"><span>Kelly stake (1/4)</span><span class="mono">$60 (5.95%)</span></div>
+            </div>
         </article>
         <article class="card">
           <header class="card-head">
             <div class="verdict v-bet-yrfi">BET YRFI</div>
-            <div class="time mono">5:10 PM UTC</div>
+            <div class="time mono">1:10 PM ET</div>
           </header>
           <h2 class="matchup"><span class="away-team">Los Angeles Angels</span> <span class="at">@</span> <span class="home-team">Chicago White Sox</span></h2>
-          <div class="venue">Rate Field · PF 0.92 · 49°F · 11 mph</div>
-          <div class="big">
-            <div class="big-row">
-              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">39.0%</div><div class="big-sub">Fair: +156</div></div>
-              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">61.0%</div><div class="big-sub">Fair: -156</div></div>
-            </div>
-          </div>
-          <div class="grid2">
-            <div class="col">
-              <div class="col-name">Yusei Kikuchi</div>
-              <div class="row"><span>1st ERA</span><span class="mono">4.50</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">6.21</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">24 / 9.8</span></div>
-            </div>
-            <div class="col">
-              <div class="col-name">Erick Fedde</div>
-              <div class="row"><span>1st ERA</span><span class="mono">3.00</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">3.42</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">15 / 10.2</span></div>
-            </div>
-          </div>
+          <div class="venue">Rate Field - PF 0.92 - 49F - 11 mph</div>
           
-              <div class="market">
-                <div class="m-row"><span>Best side</span><span class="mono">YRFI -102 · BetOnline.ag</span></div>
-                <div class="m-row"><span>Implied prob</span><span class="mono">50.5%</span></div>
-                <div class="m-row"><span>Edge</span><span class="mono pos">+10.5%</span></div>
-                <div class="m-row"><span>Kelly stake (¼)</span><span class="mono">$53 (5.28%)</span></div>
+            <div class="big">
+              <div class="big-row">
+                <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">39.0%</div><div class="big-sub">Fair: +156</div></div>
+                <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">61.0%</div><div class="big-sub">Fair: -156</div></div>
               </div>
+            </div>
+          
+            <div class="grid2">
+              <div class="col">
+                <div class="col-name">Yusei Kikuchi</div>
+                <div class="row"><span>1st ERA</span><span class="mono">4.50</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">6.21</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">24 / 9.8</span></div>
+              </div>
+              <div class="col">
+                <div class="col-name">Erick Fedde</div>
+                <div class="row"><span>1st ERA</span><span class="mono">3.00</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">3.42</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">15 / 10.2</span></div>
+              </div>
+            </div>
+          
+            <div class="market">
+              <div class="m-row"><span>Best side</span><span class="mono">YRFI -102 - BetOnline.ag</span></div>
+              <div class="m-row"><span>Implied prob</span><span class="mono">50.5%</span></div>
+              <div class="m-row"><span>Edge</span><span class="mono pos">+10.5%</span></div>
+              <div class="m-row"><span>Kelly stake (1/4)</span><span class="mono">$53 (5.28%)</span></div>
+            </div>
         </article>
         <article class="card">
           <header class="card-head">
             <div class="verdict v-bet-yrfi">BET YRFI</div>
-            <div class="time mono">5:40 PM UTC</div>
+            <div class="time mono">1:40 PM ET</div>
           </header>
           <h2 class="matchup"><span class="away-team">Seattle Mariners</span> <span class="at">@</span> <span class="home-team">Minnesota Twins</span></h2>
-          <div class="venue">Target Field · PF 0.97 · 52°F · 11 mph</div>
-          <div class="big">
-            <div class="big-row">
-              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">45.9%</div><div class="big-sub">Fair: +118</div></div>
-              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">54.1%</div><div class="big-sub">Fair: -118</div></div>
-            </div>
-          </div>
-          <div class="grid2">
-            <div class="col">
-              <div class="col-name">George Kirby</div>
-              <div class="row"><span>1st ERA</span><span class="mono">3.00</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">2.97</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">19 / 5.9</span></div>
-            </div>
-            <div class="col">
-              <div class="col-name">Taj Bradley</div>
-              <div class="row"><span>1st ERA</span><span class="mono">3.00</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">2.91</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">25 / 8.8</span></div>
-            </div>
-          </div>
+          <div class="venue">Target Field - PF 0.97 - 52F - 11 mph</div>
           
-              <div class="market">
-                <div class="m-row"><span>Best side</span><span class="mono">YRFI +112 · BetOnline.ag</span></div>
-                <div class="m-row"><span>Implied prob</span><span class="mono">47.2%</span></div>
-                <div class="m-row"><span>Edge</span><span class="mono pos">+6.9%</span></div>
-                <div class="m-row"><span>Kelly stake (¼)</span><span class="mono">$33 (3.29%)</span></div>
+            <div class="big">
+              <div class="big-row">
+                <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">45.9%</div><div class="big-sub">Fair: +118</div></div>
+                <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">54.1%</div><div class="big-sub">Fair: -118</div></div>
               </div>
+            </div>
+          
+            <div class="grid2">
+              <div class="col">
+                <div class="col-name">George Kirby</div>
+                <div class="row"><span>1st ERA</span><span class="mono">3.00</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">2.97</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">19 / 5.9</span></div>
+              </div>
+              <div class="col">
+                <div class="col-name">Taj Bradley</div>
+                <div class="row"><span>1st ERA</span><span class="mono">3.00</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">2.91</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">25 / 8.8</span></div>
+              </div>
+            </div>
+          
+            <div class="market">
+              <div class="m-row"><span>Best side</span><span class="mono">YRFI +112 - BetOnline.ag</span></div>
+              <div class="m-row"><span>Implied prob</span><span class="mono">47.2%</span></div>
+              <div class="m-row"><span>Edge</span><span class="mono pos">+6.9%</span></div>
+              <div class="m-row"><span>Kelly stake (1/4)</span><span class="mono">$33 (3.29%)</span></div>
+            </div>
         </article>
         <article class="card">
           <header class="card-head">
             <div class="verdict v-bet-yrfi">BET YRFI</div>
-            <div class="time mono">8:10 PM UTC</div>
+            <div class="time mono">4:10 PM ET</div>
           </header>
           <h2 class="matchup"><span class="away-team">Chicago Cubs</span> <span class="at">@</span> <span class="home-team">San Diego Padres</span></h2>
-          <div class="venue">Petco Park · PF 0.94 · 71°F · 9 mph</div>
-          <div class="big">
-            <div class="big-row">
-              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">40.1%</div><div class="big-sub">Fair: +149</div></div>
-              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">59.9%</div><div class="big-sub">Fair: -149</div></div>
-            </div>
-          </div>
-          <div class="grid2">
-            <div class="col">
-              <div class="col-name">Jameson Taillon</div>
-              <div class="row"><span>1st ERA</span><span class="mono">1.80</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">4.55</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">22 / 10.3</span></div>
-            </div>
-            <div class="col">
-              <div class="col-name">Matt Waldron</div>
-              <div class="row"><span>1st ERA</span><span class="mono">4.50</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">12.46</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">15 / 8.5</span></div>
-            </div>
-          </div>
+          <div class="venue">Petco Park - PF 0.94 - 71F - 9 mph</div>
           
-              <div class="market">
-                <div class="m-row"><span>Best side</span><span class="mono">YRFI -119 · BetOnline.ag</span></div>
-                <div class="m-row"><span>Implied prob</span><span class="mono">54.3%</span></div>
-                <div class="m-row"><span>Edge</span><span class="mono pos">+5.6%</span></div>
-                <div class="m-row"><span>Kelly stake (¼)</span><span class="mono">$31 (3.05%)</span></div>
+            <div class="big">
+              <div class="big-row">
+                <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">40.1%</div><div class="big-sub">Fair: +149</div></div>
+                <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">59.9%</div><div class="big-sub">Fair: -149</div></div>
               </div>
+            </div>
+          
+            <div class="grid2">
+              <div class="col">
+                <div class="col-name">Jameson Taillon</div>
+                <div class="row"><span>1st ERA</span><span class="mono">1.80</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">4.55</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">22 / 10.3</span></div>
+              </div>
+              <div class="col">
+                <div class="col-name">Matt Waldron</div>
+                <div class="row"><span>1st ERA</span><span class="mono">4.50</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">12.46</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">15 / 8.5</span></div>
+              </div>
+            </div>
+          
+            <div class="market">
+              <div class="m-row"><span>Best side</span><span class="mono">YRFI -119 - BetOnline.ag</span></div>
+              <div class="m-row"><span>Implied prob</span><span class="mono">54.3%</span></div>
+              <div class="m-row"><span>Edge</span><span class="mono pos">+5.6%</span></div>
+              <div class="m-row"><span>Kelly stake (1/4)</span><span class="mono">$31 (3.05%)</span></div>
+            </div>
         </article>
         <article class="card">
           <header class="card-head">
             <div class="verdict v-bet-nrfi">BET NRFI</div>
-            <div class="time mono">10:40 PM UTC</div>
+            <div class="time mono">6:40 PM ET</div>
           </header>
           <h2 class="matchup"><span class="away-team">San Francisco Giants</span> <span class="at">@</span> <span class="home-team">Philadelphia Phillies</span></h2>
-          <div class="venue">Citizens Bank Park · PF 1.02 · 55°F · 7 mph</div>
-          <div class="big">
-            <div class="big-row">
-              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">64.6%</div><div class="big-sub">Fair: -182</div></div>
-              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">35.4%</div><div class="big-sub">Fair: +182</div></div>
-            </div>
-          </div>
-          <div class="grid2">
-            <div class="col">
-              <div class="col-name">Logan Webb</div>
-              <div class="row"><span>1st ERA</span><span class="mono">0.00</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">4.86</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">20 / 8.1</span></div>
-            </div>
-            <div class="col">
-              <div class="col-name">Cristopher Sánchez</div>
-              <div class="row"><span>1st ERA</span><span class="mono">1.50</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">2.94</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">28 / 6.5</span></div>
-            </div>
-          </div>
+          <div class="venue">Citizens Bank Park - PF 1.02 - 55F - 7 mph</div>
           
-              <div class="market">
-                <div class="m-row"><span>Best side</span><span class="mono">NRFI -149 · BetOnline.ag</span></div>
-                <div class="m-row"><span>Implied prob</span><span class="mono">59.8%</span></div>
-                <div class="m-row"><span>Edge</span><span class="mono pos">+4.7%</span></div>
-                <div class="m-row"><span>Kelly stake (¼)</span><span class="mono">$29 (2.94%)</span></div>
+            <div class="big">
+              <div class="big-row">
+                <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">64.6%</div><div class="big-sub">Fair: -182</div></div>
+                <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">35.4%</div><div class="big-sub">Fair: +182</div></div>
               </div>
+            </div>
+          
+            <div class="grid2">
+              <div class="col">
+                <div class="col-name">Logan Webb</div>
+                <div class="row"><span>1st ERA</span><span class="mono">0.00</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">4.86</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">20 / 8.1</span></div>
+              </div>
+              <div class="col">
+                <div class="col-name">Cristopher Sánchez</div>
+                <div class="row"><span>1st ERA</span><span class="mono">1.50</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">2.94</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">28 / 6.5</span></div>
+              </div>
+            </div>
+          
+            <div class="market">
+              <div class="m-row"><span>Best side</span><span class="mono">NRFI -149 - BetOnline.ag</span></div>
+              <div class="m-row"><span>Implied prob</span><span class="mono">59.8%</span></div>
+              <div class="m-row"><span>Edge</span><span class="mono pos">+4.7%</span></div>
+              <div class="m-row"><span>Kelly stake (1/4)</span><span class="mono">$29 (2.94%)</span></div>
+            </div>
         </article>
         <article class="card">
           <header class="card-head">
             <div class="verdict v-nobet">NO BET</div>
-            <div class="time mono">10:40 PM UTC</div>
+            <div class="time mono">6:40 PM ET</div>
           </header>
           <h2 class="matchup"><span class="away-team">Colorado Rockies</span> <span class="at">@</span> <span class="home-team">Cincinnati Reds</span></h2>
-          <div class="venue">Great American Ball Park · PF 1.08 · 61°F · 11 mph</div>
-          <div class="big">
-            <div class="big-row">
-              <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">45.0%</div><div class="big-sub">Fair: +122</div></div>
-              <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">55.0%</div><div class="big-sub">Fair: -122</div></div>
-            </div>
-          </div>
-          <div class="grid2">
-            <div class="col">
-              <div class="col-name">Tomoyuki Sugano</div>
-              <div class="row"><span>1st ERA</span><span class="mono">3.60</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">3.42</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">17 / 5.5</span></div>
-            </div>
-            <div class="col">
-              <div class="col-name">Brandon Williamson</div>
-              <div class="row"><span>1st ERA</span><span class="mono">0.00</span></div>
-              <div class="row"><span>Season ERA</span><span class="mono">5.40</span></div>
-              <div class="row"><span>K% / BB%</span><span class="mono">13 / 14.3</span></div>
-            </div>
-          </div>
+          <div class="venue">Great American Ball Park - PF 1.08 - 61F - 11 mph</div>
           
-              <div class="market">
-                <div class="m-row"><span>Best side</span><span class="mono">YRFI -125 · BetMGM</span></div>
-                <div class="m-row"><span>Implied prob</span><span class="mono">55.6%</span></div>
-                <div class="m-row"><span>Edge</span><span class="mono neg">-0.6%</span></div>
-                <div class="m-row"><span>Kelly stake (¼)</span><span class="mono">$0</span></div>
+            <div class="big">
+              <div class="big-row">
+                <div><div class="big-label">P(NRFI)</div><div class="big-val nrfi">45.0%</div><div class="big-sub">Fair: +122</div></div>
+                <div><div class="big-label">P(YRFI)</div><div class="big-val yrfi">55.0%</div><div class="big-sub">Fair: -122</div></div>
               </div>
+            </div>
+          
+            <div class="grid2">
+              <div class="col">
+                <div class="col-name">Tomoyuki Sugano</div>
+                <div class="row"><span>1st ERA</span><span class="mono">3.60</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">3.42</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">17 / 5.5</span></div>
+              </div>
+              <div class="col">
+                <div class="col-name">Brandon Williamson</div>
+                <div class="row"><span>1st ERA</span><span class="mono">0.00</span></div>
+                <div class="row"><span>Season ERA</span><span class="mono">5.40</span></div>
+                <div class="row"><span>K% / BB%</span><span class="mono">13 / 14.3</span></div>
+              </div>
+            </div>
+          
+            <div class="market">
+              <div class="m-row"><span>Best side</span><span class="mono">YRFI -125 - BetMGM</span></div>
+              <div class="m-row"><span>Implied prob</span><span class="mono">55.6%</span></div>
+              <div class="m-row"><span>Edge</span><span class="mono neg">-0.6%</span></div>
+              <div class="m-row"><span>Kelly stake (1/4)</span><span class="mono">$0</span></div>
+            </div>
         </article></div>
-  <div class="footer">NRFI DAILY · NOT INVESTMENT ADVICE · GAMBLE RESPONSIBLY</div>
+  <div class="footer">NRFI DAILY - NOT INVESTMENT ADVICE - GAMBLE RESPONSIBLY</div>
 </div></body></html>
