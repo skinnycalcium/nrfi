@@ -9004,9 +9004,9 @@
     "edge": 0.2132,
     "kelly_pct": 0.1066,
     "stake": 106.6,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "L",
+    "runs_in_first": 0,
+    "pnl": -106.6
   },
   {
     "date": "2026-05-10",
@@ -9037,9 +9037,9 @@
     "edge": 0.3003,
     "kelly_pct": 0.1689,
     "stake": 168.94,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "L",
+    "runs_in_first": 0,
+    "pnl": -168.94
   },
   {
     "date": "2026-05-10",
@@ -9070,9 +9070,9 @@
     "edge": 0.0727,
     "kelly_pct": 0.04,
     "stake": 39.97,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "L",
+    "runs_in_first": 1,
+    "pnl": -39.97
   },
   {
     "date": "2026-05-10",
@@ -9103,9 +9103,9 @@
     "edge": 0.0875,
     "kelly_pct": 0.0421,
     "stake": 42.12,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "W",
+    "runs_in_first": 2,
+    "pnl": 45.49
   },
   {
     "date": "2026-05-10",
@@ -9136,9 +9136,9 @@
     "edge": 0.1229,
     "kelly_pct": 0.0614,
     "stake": 61.45,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "W",
+    "runs_in_first": 1,
+    "pnl": 61.45
   },
   {
     "date": "2026-05-10",
@@ -9169,9 +9169,9 @@
     "edge": 0.4073,
     "kelly_pct": 0.2149,
     "stake": 214.86,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "L",
+    "runs_in_first": 0,
+    "pnl": -214.86
   },
   {
     "date": "2026-05-10",
@@ -9202,9 +9202,9 @@
     "edge": 0.1627,
     "kelly_pct": 0.073,
     "stake": 72.96,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "L",
+    "runs_in_first": 0,
+    "pnl": -72.96
   },
   {
     "date": "2026-05-10",
@@ -9235,9 +9235,9 @@
     "edge": 0.2321,
     "kelly_pct": 0.1128,
     "stake": 112.75,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "W",
+    "runs_in_first": 1,
+    "pnl": 119.52
   },
   {
     "date": "2026-05-10",
@@ -9268,9 +9268,9 @@
     "edge": 0.0633,
     "kelly_pct": 0.0313,
     "stake": 31.33,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "W",
+    "runs_in_first": 1,
+    "pnl": 31.96
   },
   {
     "date": "2026-05-10",
@@ -9301,9 +9301,9 @@
     "edge": 0.2049,
     "kelly_pct": 0.0954,
     "stake": 95.37,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "L",
+    "runs_in_first": 0,
+    "pnl": -95.37
   },
   {
     "date": "2026-05-10",
@@ -9334,9 +9334,9 @@
     "edge": 0.2417,
     "kelly_pct": 0.1191,
     "stake": 119.1,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "W",
+    "runs_in_first": 1,
+    "pnl": 122.67
   },
   {
     "date": "2026-05-10",
@@ -9367,9 +9367,9 @@
     "edge": 0.1078,
     "kelly_pct": 0.0539,
     "stake": 53.89,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "L",
+    "runs_in_first": 0,
+    "pnl": -53.89
   },
   {
     "date": "2026-05-10",
@@ -9400,9 +9400,9 @@
     "edge": 0.0437,
     "kelly_pct": 0.0229,
     "stake": 22.93,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "W",
+    "runs_in_first": 0,
+    "pnl": 20.85
   },
   {
     "date": "2026-05-10",
@@ -9433,9 +9433,9 @@
     "edge": 0.1581,
     "kelly_pct": 0.081,
     "stake": 81.02,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "L",
+    "runs_in_first": 0,
+    "pnl": -81.02
   },
   {
     "date": "2026-05-10",
@@ -9466,6 +9466,138 @@
     "edge": 0.0788,
     "kelly_pct": 0.0429,
     "stake": 42.94,
+    "result": "W",
+    "runs_in_first": 0,
+    "pnl": 36.39
+  },
+  {
+    "date": "2026-05-11",
+    "game_pk": 824844,
+    "away_team": "New York Yankees",
+    "home_team": "Baltimore Orioles",
+    "venue": "Oriole Park at Camden Yards",
+    "park_factor": 1.0,
+    "temp_f": 66.0,
+    "wind_mph": 10.0,
+    "dome": false,
+    "away_pitcher": "Ryan Weathers",
+    "away_pitcher_1st_era": 7.71,
+    "away_pitcher_season_era": 3.03,
+    "away_pitcher_k_pct": 28.5,
+    "home_pitcher": "Brandon Young",
+    "home_pitcher_1st_era": 11.25,
+    "home_pitcher_season_era": 4.35,
+    "home_pitcher_k_pct": 15.1,
+    "p_nrfi": 0.0966,
+    "p_yrfi": 0.9034,
+    "fair_nrfi": 935,
+    "fair_yrfi": -935,
+    "verdict": "BET YRFI",
+    "side": "YRFI",
+    "price": -105,
+    "book": "BetMGM",
+    "edge": 0.3912,
+    "kelly_pct": 0.2005,
+    "stake": 200.48,
+    "result": null,
+    "runs_in_first": null,
+    "pnl": null
+  },
+  {
+    "date": "2026-05-11",
+    "game_pk": 822818,
+    "away_team": "Tampa Bay Rays",
+    "home_team": "Toronto Blue Jays",
+    "venue": "Rogers Centre",
+    "park_factor": 1.03,
+    "temp_f": 72.0,
+    "wind_mph": 5.0,
+    "dome": true,
+    "away_pitcher": "Drew Rasmussen",
+    "away_pitcher_1st_era": 3.86,
+    "away_pitcher_season_era": 2.95,
+    "away_pitcher_k_pct": 25.2,
+    "home_pitcher": "Kevin Gausman",
+    "home_pitcher_1st_era": 0.0,
+    "home_pitcher_season_era": 3.09,
+    "home_pitcher_k_pct": 23.2,
+    "p_nrfi": 0.4566,
+    "p_yrfi": 0.5434,
+    "fair_nrfi": 119,
+    "fair_yrfi": -119,
+    "verdict": "BET YRFI",
+    "side": "YRFI",
+    "price": 120,
+    "book": "Caesars",
+    "edge": 0.0888,
+    "kelly_pct": 0.0407,
+    "stake": 40.7,
+    "result": null,
+    "runs_in_first": null,
+    "pnl": null
+  },
+  {
+    "date": "2026-05-11",
+    "game_pk": 822901,
+    "away_team": "Arizona Diamondbacks",
+    "home_team": "Texas Rangers",
+    "venue": "Globe Life Field",
+    "park_factor": 1.01,
+    "temp_f": 72.0,
+    "wind_mph": 5.0,
+    "dome": true,
+    "away_pitcher": "Michael Soroka",
+    "away_pitcher_1st_era": 10.29,
+    "away_pitcher_season_era": 4.14,
+    "away_pitcher_k_pct": 25.8,
+    "home_pitcher": "Nathan Eovaldi",
+    "home_pitcher_1st_era": 7.88,
+    "home_pitcher_season_era": 4.15,
+    "home_pitcher_k_pct": 23.5,
+    "p_nrfi": 0.1098,
+    "p_yrfi": 0.8902,
+    "fair_nrfi": 811,
+    "fair_yrfi": -811,
+    "verdict": "BET YRFI",
+    "side": "YRFI",
+    "price": 118,
+    "book": "FanDuel",
+    "edge": 0.4315,
+    "kelly_pct": 0.1993,
+    "stake": 199.3,
+    "result": null,
+    "runs_in_first": null,
+    "pnl": null
+  },
+  {
+    "date": "2026-05-11",
+    "game_pk": 823953,
+    "away_team": "San Francisco Giants",
+    "home_team": "Los Angeles Dodgers",
+    "venue": "UNIQLO Field at Dodger Stadium",
+    "park_factor": 1.0,
+    "temp_f": 72.0,
+    "wind_mph": 5.0,
+    "dome": false,
+    "away_pitcher": "Trevor McDonald",
+    "away_pitcher_1st_era": 9.0,
+    "away_pitcher_season_era": 1.29,
+    "away_pitcher_k_pct": 33.3,
+    "home_pitcher": "Roki Sasaki",
+    "home_pitcher_1st_era": 0.0,
+    "home_pitcher_season_era": 5.97,
+    "home_pitcher_k_pct": 19.4,
+    "p_nrfi": 0.2421,
+    "p_yrfi": 0.7579,
+    "fair_nrfi": 313,
+    "fair_yrfi": -313,
+    "verdict": "BET YRFI",
+    "side": "YRFI",
+    "price": -120,
+    "book": "BetMGM",
+    "edge": 0.2125,
+    "kelly_pct": 0.1168,
+    "stake": 116.85,
     "result": null,
     "runs_in_first": null,
     "pnl": null
