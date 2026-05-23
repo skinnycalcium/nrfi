@@ -13261,9 +13261,9 @@
     "edge": 0.1708,
     "kelly_pct": 0.0783,
     "stake": 78.3,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "L",
+    "runs_in_first": 0,
+    "pnl": -78.3
   },
   {
     "date": "2026-05-22",
@@ -13327,9 +13327,9 @@
     "edge": 0.1754,
     "kelly_pct": 0.0789,
     "stake": 78.91,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "L",
+    "runs_in_first": 0,
+    "pnl": -78.91
   },
   {
     "date": "2026-05-22",
@@ -13360,9 +13360,9 @@
     "edge": 0.1062,
     "kelly_pct": 0.0531,
     "stake": 53.08,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "L",
+    "runs_in_first": 0,
+    "pnl": -53.08
   },
   {
     "date": "2026-05-22",
@@ -13393,9 +13393,9 @@
     "edge": 0.1963,
     "kelly_pct": 0.0945,
     "stake": 94.54,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "W",
+    "runs_in_first": 1,
+    "pnl": 102.1
   },
   {
     "date": "2026-05-22",
@@ -13426,9 +13426,9 @@
     "edge": 0.1573,
     "kelly_pct": 0.0735,
     "stake": 73.53,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "W",
+    "runs_in_first": 4,
+    "pnl": 84.56
   },
   {
     "date": "2026-05-22",
@@ -13459,9 +13459,9 @@
     "edge": 0.0696,
     "kelly_pct": 0.0365,
     "stake": 36.52,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "W",
+    "runs_in_first": 1,
+    "pnl": 33.2
   },
   {
     "date": "2026-05-22",
@@ -13492,9 +13492,9 @@
     "edge": 0.2811,
     "kelly_pct": 0.1476,
     "stake": 147.6,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "W",
+    "runs_in_first": 1,
+    "pnl": 134.18
   },
   {
     "date": "2026-05-22",
@@ -13525,9 +13525,9 @@
     "edge": 0.2351,
     "kelly_pct": 0.1122,
     "stake": 112.21,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "L",
+    "runs_in_first": 0,
+    "pnl": -112.21
   },
   {
     "date": "2026-05-22",
@@ -13558,9 +13558,9 @@
     "edge": 0.1469,
     "kelly_pct": 0.0707,
     "stake": 70.73,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "W",
+    "runs_in_first": 4,
+    "pnl": 76.39
   },
   {
     "date": "2026-05-22",
@@ -13591,9 +13591,9 @@
     "edge": 0.2725,
     "kelly_pct": 0.1485,
     "stake": 148.54,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "L",
+    "runs_in_first": 0,
+    "pnl": -148.54
   },
   {
     "date": "2026-05-22",
@@ -13624,8 +13624,8 @@
     "edge": 0.1247,
     "kelly_pct": 0.0655,
     "stake": 65.48,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "W",
+    "runs_in_first": 4,
+    "pnl": 59.53
   }
 ]
