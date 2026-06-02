@@ -1,44 +1,44 @@
 {
-  "updated": "2026-06-01T17:15:33.277169",
-  "total_bets": 514,
-  "wins": 276,
-  "losses": 238,
+  "updated": "2026-06-02T10:41:35.527569",
+  "total_bets": 521,
+  "wins": 281,
+  "losses": 240,
   "pushes": 0,
-  "win_pct": 53.7,
-  "total_staked": 53337.42,
-  "total_pnl": 3057.08,
-  "roi_pct": 5.73,
+  "win_pct": 53.9,
+  "total_staked": 54117.15,
+  "total_pnl": 3209.61,
+  "roi_pct": 5.93,
   "nrfi": {
-    "n": 78,
-    "wins": 43,
-    "win_pct": 55.1
+    "n": 80,
+    "wins": 45,
+    "win_pct": 56.2
   },
   "yrfi": {
-    "n": 436,
-    "wins": 233,
-    "win_pct": 53.4
+    "n": 441,
+    "wins": 236,
+    "win_pct": 53.5
   },
   "edge_calibration": {
     "4-7%": {
-      "n": 55,
-      "wins": 29,
-      "win_pct": 52.7,
-      "roi": -1.0,
-      "pnl": -16.49
+      "n": 56,
+      "wins": 30,
+      "win_pct": 53.6,
+      "roi": 0.3,
+      "pnl": 5.12
     },
     "7-12%": {
-      "n": 105,
-      "wins": 58,
-      "win_pct": 55.2,
-      "roi": 8.2,
-      "pnl": 394.98
+      "n": 106,
+      "wins": 59,
+      "win_pct": 55.7,
+      "roi": 8.8,
+      "pnl": 429.74
     },
     "12%+": {
-      "n": 354,
-      "wins": 189,
-      "win_pct": 53.4,
-      "roi": 5.7,
-      "pnl": 2678.59
+      "n": 359,
+      "wins": 192,
+      "win_pct": 53.5,
+      "roi": 5.8,
+      "pnl": 2774.75
     }
   }
 }
