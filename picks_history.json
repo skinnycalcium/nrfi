@@ -24349,9 +24349,9 @@
     "edge": 0.1561,
     "kelly_pct": 0.082,
     "stake": 81.98,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "L",
+    "runs_in_first": 0,
+    "pnl": -81.98
   },
   {
     "date": "2026-06-22",
@@ -24382,9 +24382,9 @@
     "edge": 0.2398,
     "kelly_pct": 0.1125,
     "stake": 112.52,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "L",
+    "runs_in_first": 0,
+    "pnl": -112.52
   },
   {
     "date": "2026-06-22",
@@ -24415,9 +24415,9 @@
     "edge": 0.1763,
     "kelly_pct": 0.0899,
     "stake": 89.9,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "L",
+    "runs_in_first": 0,
+    "pnl": -89.9
   },
   {
     "date": "2026-06-22",
@@ -24481,9 +24481,9 @@
     "edge": 0.3573,
     "kelly_pct": 0.201,
     "stake": 200.98,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "W",
+    "runs_in_first": 2,
+    "pnl": 160.78
   },
   {
     "date": "2026-06-22",
@@ -24514,9 +24514,9 @@
     "edge": 0.2888,
     "kelly_pct": 0.1378,
     "stake": 137.83,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "L",
+    "runs_in_first": 0,
+    "pnl": -137.83
   },
   {
     "date": "2026-06-22",
@@ -24547,9 +24547,9 @@
     "edge": 0.3377,
     "kelly_pct": 0.1815,
     "stake": 181.52,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "L",
+    "runs_in_first": 0,
+    "pnl": -181.52
   },
   {
     "date": "2026-06-22",
@@ -24580,9 +24580,9 @@
     "edge": 0.1617,
     "kelly_pct": 0.0833,
     "stake": 83.26,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "W",
+    "runs_in_first": 1,
+    "pnl": 78.55
   },
   {
     "date": "2026-06-22",
@@ -24613,8 +24613,8 @@
     "edge": 0.0949,
     "kelly_pct": 0.0461,
     "stake": 46.11,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "L",
+    "runs_in_first": 0,
+    "pnl": -46.11
   }
 ]
