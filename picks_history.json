@@ -30619,9 +30619,9 @@
     "edge": 0.2115,
     "kelly_pct": 0.1032,
     "stake": 103.24,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "W",
+    "runs_in_first": 2,
+    "pnl": 108.4
   },
   {
     "date": "2026-07-10",
@@ -31015,9 +31015,9 @@
     "edge": 0.1749,
     "kelly_pct": 0.091,
     "stake": 90.97,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "W",
+    "runs_in_first": 2,
+    "pnl": 84.23
   },
   {
     "date": "2026-07-11",
@@ -31048,9 +31048,9 @@
     "edge": 0.1214,
     "kelly_pct": 0.0631,
     "stake": 63.13,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "L",
+    "runs_in_first": 0,
+    "pnl": -63.13
   },
   {
     "date": "2026-07-11",
@@ -31081,9 +31081,9 @@
     "edge": 0.3326,
     "kelly_pct": 0.1663,
     "stake": 166.3,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "L",
+    "runs_in_first": 0,
+    "pnl": -166.3
   },
   {
     "date": "2026-07-11",
@@ -31114,9 +31114,9 @@
     "edge": 0.0715,
     "kelly_pct": 0.037,
     "stake": 36.98,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "W",
+    "runs_in_first": 0,
+    "pnl": 34.56
   },
   {
     "date": "2026-07-11",
@@ -31147,9 +31147,9 @@
     "edge": 0.3231,
     "kelly_pct": 0.1696,
     "stake": 169.61,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "L",
+    "runs_in_first": 0,
+    "pnl": -169.61
   },
   {
     "date": "2026-07-11",
@@ -31180,9 +31180,9 @@
     "edge": 0.1492,
     "kelly_pct": 0.0787,
     "stake": 78.71,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "W",
+    "runs_in_first": 2,
+    "pnl": 70.91
   },
   {
     "date": "2026-07-11",
@@ -31213,9 +31213,9 @@
     "edge": 0.1832,
     "kelly_pct": 0.0874,
     "stake": 87.42,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "L",
+    "runs_in_first": 0,
+    "pnl": -87.42
   },
   {
     "date": "2026-07-11",
@@ -31246,9 +31246,9 @@
     "edge": 0.2468,
     "kelly_pct": 0.1168,
     "stake": 116.78,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "L",
+    "runs_in_first": 0,
+    "pnl": -116.78
   },
   {
     "date": "2026-07-11",
@@ -31279,9 +31279,9 @@
     "edge": 0.2164,
     "kelly_pct": 0.0992,
     "stake": 99.17,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "L",
+    "runs_in_first": 0,
+    "pnl": -99.17
   },
   {
     "date": "2026-07-11",
@@ -31312,9 +31312,9 @@
     "edge": 0.0509,
     "kelly_pct": 0.0267,
     "stake": 26.72,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "W",
+    "runs_in_first": 0,
+    "pnl": 24.29
   },
   {
     "date": "2026-07-11",
@@ -31345,9 +31345,9 @@
     "edge": 0.2773,
     "kelly_pct": 0.1387,
     "stake": 138.66,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "W",
+    "runs_in_first": 2,
+    "pnl": 138.66
   },
   {
     "date": "2026-07-11",
@@ -31378,9 +31378,9 @@
     "edge": 0.0485,
     "kelly_pct": 0.0226,
     "stake": 22.59,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "W",
+    "runs_in_first": 0,
+    "pnl": 26.2
   },
   {
     "date": "2026-07-11",
@@ -31411,9 +31411,9 @@
     "edge": 0.2906,
     "kelly_pct": 0.1467,
     "stake": 146.75,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "W",
+    "runs_in_first": 3,
+    "pnl": 143.87
   },
   {
     "date": "2026-07-11",
@@ -31444,9 +31444,9 @@
     "edge": 0.1261,
     "kelly_pct": 0.0607,
     "stake": 60.73,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "W",
+    "runs_in_first": 2,
+    "pnl": 65.59
   },
   {
     "date": "2026-07-11",
@@ -31477,8 +31477,8 @@
     "edge": 0.0533,
     "kelly_pct": 0.0286,
     "stake": 28.65,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "L",
+    "runs_in_first": 0,
+    "pnl": -28.65
   }
 ]
