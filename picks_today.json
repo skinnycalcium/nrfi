@@ -1,1 +1,35 @@
-[]
+[
+  {
+    "date": "2026-07-14",
+    "game_pk": 823443,
+    "away_team": "American League All-Stars",
+    "home_team": "National League All-Stars",
+    "venue": "Citizens Bank Park",
+    "park_factor": 1.02,
+    "temp_f": 87.9,
+    "wind_mph": 8.6,
+    "dome": false,
+    "away_pitcher": "Dylan Cease",
+    "away_pitcher_1st_era": 3.18,
+    "away_pitcher_season_era": 2.56,
+    "away_pitcher_k_pct": 36.9,
+    "home_pitcher": "Cristopher S\u00e1nchez",
+    "home_pitcher_1st_era": 6.3,
+    "home_pitcher_season_era": 2.62,
+    "home_pitcher_k_pct": 27.4,
+    "p_nrfi": 0.3188,
+    "p_yrfi": 0.6812,
+    "fair_nrfi": 214,
+    "fair_yrfi": -214,
+    "verdict": "NO LINE",
+    "side": "",
+    "price": null,
+    "book": "",
+    "edge": 0,
+    "kelly_pct": 0.0,
+    "stake": 0.0,
+    "result": null,
+    "runs_in_first": null,
+    "pnl": null
+  }
+]
