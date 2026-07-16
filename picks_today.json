@@ -1,1 +1,35 @@
-[]
+[
+  {
+    "date": "2026-07-16",
+    "game_pk": 823440,
+    "away_team": "New York Mets",
+    "home_team": "Philadelphia Phillies",
+    "venue": "Citizens Bank Park",
+    "park_factor": 1.02,
+    "temp_f": 97.5,
+    "wind_mph": 11.7,
+    "dome": false,
+    "away_pitcher": "Christian Scott",
+    "away_pitcher_1st_era": 4.5,
+    "away_pitcher_season_era": 3.17,
+    "away_pitcher_k_pct": 27.9,
+    "home_pitcher": "Aaron Nola",
+    "home_pitcher_1st_era": 3.79,
+    "home_pitcher_season_era": 5.75,
+    "home_pitcher_k_pct": 24.0,
+    "p_nrfi": 0.3051,
+    "p_yrfi": 0.6949,
+    "fair_nrfi": 228,
+    "fair_yrfi": -228,
+    "verdict": "NO LINE",
+    "side": "",
+    "price": null,
+    "book": "",
+    "edge": 0,
+    "kelly_pct": 0.0,
+    "stake": 0.0,
+    "result": null,
+    "runs_in_first": null,
+    "pnl": null
+  }
+]
