@@ -8608,9 +8608,9 @@
     "edge": 0.0567,
     "kelly_pct": 0.0323,
     "stake": 32.34,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "W",
+    "runs_in_first": 0,
+    "pnl": 25.27
   },
   {
     "date": "2026-05-09",
