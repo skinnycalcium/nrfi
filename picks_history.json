@@ -24151,9 +24151,9 @@
     "edge": 0.2733,
     "kelly_pct": 0.1205,
     "stake": 120.48,
-    "result": null,
-    "runs_in_first": null,
-    "pnl": null
+    "result": "W",
+    "runs_in_first": 1,
+    "pnl": 157.83
   },
   {
     "date": "2026-06-21",
